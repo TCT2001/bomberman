@@ -18,8 +18,6 @@ public abstract class Tile extends Entity {
 
 	/**
 	 * Mặc định không cho bất cứ một đối tượng nào đi qua
-	 * @param e
-	 * @return
 	 */
 	@Override
 	public boolean collide(Entity e) {

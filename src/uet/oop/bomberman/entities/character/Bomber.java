@@ -7,6 +7,7 @@ import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.input.Keyboard;
+import uet.oop.bomberman.level.Coordinates;
 
 import java.util.Iterator;
 import java.util.List;
@@ -69,6 +70,13 @@ public class Bomber extends Character {
      */
     private void detectPlaceBomb() {
         // TODO: kiểm tra xem phím điều khiển đặt bom có được gõ và giá trị _timeBetweenPutBombs, Game.getBombRate() có thỏa mãn hay không
+        if (_input.space) {
+            int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
+            int yt = Coordinates.pixelToTile( (_y + _sprite.getSize() / 2) - _sprite.getSize() ); //subtract half player height and minus 1 y position
+
+            placeBomb(xt,yt);
+            Game.addBombRate(-1);
+        }
         // TODO:  Game.getBombRate() sẽ trả về số lượng bom có thể đặt liên tiếp tại thời điểm hiện tại
         // TODO: _timeBetweenPutBombs dùng để ngăn chặn Bomber đặt 2 Bomb cùng tại 1 vị trí trong 1 khoảng thời gian quá ngắn
         // TODO: nếu 3 điều kiện trên thỏa mãn thì thực hiện đặt bom bằng placeBomb()
@@ -76,7 +84,8 @@ public class Bomber extends Character {
     }
 
     protected void placeBomb(int x, int y) {
-        // TODO: thực hiện tạo đối tượng bom, đặt vào vị trí (x, y)
+        // TODO: thực hiện tạo đối tượng bom, đặt vào vị trí (x, y) trên board
+        this._board.addBomb(new Bomb(x,y,this._board));
     }
 
     private void clearBombs() {

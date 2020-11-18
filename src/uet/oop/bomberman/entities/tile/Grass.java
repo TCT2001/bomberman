@@ -12,8 +12,6 @@ public class Grass extends Tile {
 
 	/**
 	 * Cho bất kì đối tượng khác đi qua
-	 * @param e
-	 * @return
 	 */
 	@Override
 	public boolean collide(Entity e) {
