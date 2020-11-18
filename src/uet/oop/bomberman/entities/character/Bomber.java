@@ -25,7 +25,7 @@ public class Bomber extends Character {
     public Bomber(int x, int y, Board board) {
         super(x, y, board);
         _bombs = _board.getBombs();
-        _input = _board.getInput();
+        _input = Keyboard.getInstance();
         _sprite = Sprite.player_right;
     }
 
@@ -113,13 +113,13 @@ public class Bomber extends Character {
         // TODO: nhớ cập nhật lại giá trị cờ _moving khi thay đổi trạng thái di chuyển
         int moveX = 0;
         int moveY = 0;
-        if (_input.up) moveX--;
-        if (_input.down) moveX++;
-        if (_input.right) moveY++;
-        if (_input.left) moveY--;
+        if (_input.up) moveY--;
+        if (_input.down) moveY++;
+        if (_input.right) moveX++;
+        if (_input.left) moveX--;
         if (moveX != 0 || moveY != 0) {
             _moving = true;
-            move(moveY,moveX);
+            move(moveX,moveY);
         } else {
             _moving = false;
         }
@@ -128,19 +128,48 @@ public class Bomber extends Character {
     @Override
     public boolean canMove(double x, double y) {
         // TODO: kiểm tra có đối tượng tại vị trí chuẩn bị di chuyển đến và có thể di chuyển tới đó hay không
-        return false;
+
+//        //check top left
+        Entity e = _board.getEntity(x/16, (y-10)/16, this);
+        if(!e.collide(this))
+            return false;
+////        check top right
+        e = _board.getEntity((x+10)/16, (y-10)/16, this);
+        if(!e.collide(this))
+            return false;
+//
+        //check bot left
+        e = _board.getEntity(x/16, (y)/16, this);
+        if(!e.collide(this))
+            return false;
+//
+        //check bot right
+        e = _board.getEntity((x+10)/16, (y)/16, this);
+        if(!e.collide(this))
+            return false;
+
+
+        return true;
     }
 
     @Override
-    public void move(double xa, double ya) {
+    public void move(double moveX, double moveY) {
         // TODO: sử dụng canMove() để kiểm tra xem có thể di chuyển tới điểm đã tính toán hay không và thực hiện thay đổi tọa độ _x, _y
         // TODO: nhớ cập nhật giá trị _direction sau khi di chuyển
-        if(xa > 0) _direction = 1;
-        if(xa < 0) _direction = 3;
-        if(ya > 0) _direction = 2;
-        if(ya < 0) _direction = 0;
-        _y += ya*Game.getBomberSpeed();
-        _x += xa*Game.getBomberSpeed();
+        if(moveX > 0) _direction = 1;
+        if(moveX < 0) _direction = 3;
+        if(moveY > 0) _direction = 2;
+        if(moveY < 0) _direction = 0;
+
+        double ya = _y + moveY;
+        double xa = _x + moveX;
+        if(canMove(_x, ya)) {
+            _y = ya;
+        }
+
+        if(canMove(xa, _y)) {
+            _x = xa;
+        }
     }
 
     @Override

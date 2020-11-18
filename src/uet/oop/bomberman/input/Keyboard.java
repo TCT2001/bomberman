@@ -7,10 +7,21 @@ import java.awt.event.KeyListener;
  * Tiếp nhận và xử lý các sự kiện nhập từ bàn phím
  */
 public class Keyboard implements KeyListener {
-	
+	private static Keyboard keyboard;
 	private boolean[] keys = new boolean[120]; //120 is enough to this game
 	public boolean up, down, left, right, space;
-	
+
+	private Keyboard(){
+
+	}
+
+	public static Keyboard getInstance(){
+		if (keyboard == null) {
+			keyboard = new Keyboard();
+		}
+		return keyboard;
+	}
+
 	public void update() {
 		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
