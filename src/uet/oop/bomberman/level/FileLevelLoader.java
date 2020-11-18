@@ -66,7 +66,6 @@ public class FileLevelLoader extends LevelLoader {
 
 				switch (_map[y][x]) {
 					case '#':
-						System.out.println("wall" + pos);
 						_board.addEntity(pos, new Grass(x, y, Sprite.wall));
 						break;
 					case '*':
