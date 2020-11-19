@@ -205,6 +205,20 @@ public class Board implements IRender {
         return null;
     }
 
+    public Character getCharacterAt(double x, double y) {
+        Iterator<Character> itr = _characters.iterator();
+
+        Character cur;
+        while (itr.hasNext()) {
+            cur = itr.next();
+            if (cur.getXTile() == x && cur.getYTile() == y) {
+                return cur;
+            }
+        }
+        return null;
+    }
+
+
     public FlameSegment getFlameSegmentAt(int x, int y) {
         Iterator<Bomb> bs = _bombs.iterator();
         Bomb b;

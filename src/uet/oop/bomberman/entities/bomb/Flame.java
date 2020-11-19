@@ -1,6 +1,8 @@
 package uet.oop.bomberman.entities.bomb;
 
+import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.character.Character;
 import uet.oop.bomberman.graphics.Screen;
 
 public class Flame extends Entity {
@@ -42,6 +44,19 @@ public class Flame extends Entity {
 		boolean last;
 
 		// TODO: tạo các segment dưới đây
+		int x = (int)_x;
+		int y = (int)_y;
+		for (int i = 0; i < _flameSegments.length; i++) {
+			last = i == _flameSegments.length -1 ? true : false;
+			switch (_direction) {
+				case 0: y--; break;
+				case 1: x++; break;
+				case 2: y++; break;
+				case 3: x--; break;
+			}
+			_flameSegments[i] = new FlameSegment(x, y, _direction, last);
+		}
+
 	}
 
 	/**
@@ -50,7 +65,29 @@ public class Flame extends Entity {
 	 */
 	private int calculatePermitedDistance() {
 		// TODO: thực hiện tính toán độ dài của Flame
-		return 1;
+
+		int radius = 0;
+		int x = (int)_x;
+		int y = (int)_y;
+		while(radius < _radius) {
+			if(_direction == 0) y--;
+			if(_direction == 1) x++;
+			if(_direction == 2) y++;
+			if(_direction == 3) x--;
+
+			Entity a = Game.getBoard().getEntity(x, y, null);
+
+			if(a instanceof Character) {
+				++radius; //explosion has to be below the mob. Cho phép đi qua
+			}
+
+			if(a.collide(this) == false) {
+				//Không cho đi qua
+				break;
+			}
+			++radius;
+		}
+		return radius;
 	}
 	
 	public FlameSegment flameSegmentAt(int x, int y) {
