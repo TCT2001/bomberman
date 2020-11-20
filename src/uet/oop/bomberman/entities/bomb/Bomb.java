@@ -13,6 +13,7 @@ import uet.oop.bomberman.level.Coordinates;
 public class Bomb extends AnimatedEntitiy {
 
     protected double _timeToExplode = 120; //2 seconds
+    public static final int TIME_TO_EXPLODE = 120;
     public int _timeAfter = 20;
 
     protected Board _board;
@@ -110,12 +111,18 @@ public class Bomb extends AnimatedEntitiy {
             double diffY = e.getY() - Coordinates.tileToPixel(this.getY()); //Sự chênh nhau của e với bomb theo trục Y
             System.out.println("diffX = " + diffX + "diffY = " + diffY);
 
-            if(!(diffX >= -10 && diffX < 16 && diffY >= 1 && diffY <= 28)) { // differences to see if the player has moved out of the bomb, tested values
+            //Khi đã ra khỏi bom thì không thể quay lại
+            if(!(diffX >= -10 && diffX < 16 && diffY >= 1 && diffY <= 28)) {
                 _allowedToPassBomb = false;
             }
             return _allowedToPassBomb;
         }
         // TODO: xử lý va chạm với Flame của Bomb khác
+        //Nếu bomb chạm với flame thì bomb đó nổ luôn
+        if (e instanceof Flame) {
+            explode();
+            return true;
+        }
         return false;
     }
 }

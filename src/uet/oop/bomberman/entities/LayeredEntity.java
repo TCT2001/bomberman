@@ -1,5 +1,7 @@
 package uet.oop.bomberman.entities;
 
+import uet.oop.bomberman.entities.tile.Grass;
+import uet.oop.bomberman.entities.tile.destroyable.Brick;
 import uet.oop.bomberman.entities.tile.destroyable.DestroyableTile;
 import uet.oop.bomberman.graphics.Screen;
 
@@ -58,6 +60,7 @@ public class LayeredEntity extends Entity {
 	@Override
 	public boolean collide(Entity e) {
 		// TODO: lấy entity trên cùng ra để xử lý va chạm
+		this.getTopEntity().collide(e);
 		return false;
 	}
 

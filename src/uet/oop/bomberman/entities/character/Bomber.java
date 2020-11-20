@@ -4,6 +4,7 @@ import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.bomb.Bomb;
+import uet.oop.bomberman.entities.tile.Grass;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.input.Keyboard;
@@ -37,10 +38,14 @@ public class Bomber extends Character {
             afterKill();
             return;
         }
-
-        if (_timeBetweenPutBombs < -7500) _timeBetweenPutBombs = 0;
-        else _timeBetweenPutBombs--;
-
+        //Set lại thời gian giữa 2 lần đặt bom : được cho là 30
+        if (_timeBetweenPutBombs < -7500) {
+            _timeBetweenPutBombs = 0;
+        }
+        else {
+            _timeBetweenPutBombs--;
+        }
+        //Hình ảnh động cho bomber
         animate();
 
         calculateMove();
@@ -70,12 +75,14 @@ public class Bomber extends Character {
      */
     private void detectPlaceBomb() {
         // TODO: kiểm tra xem phím điều khiển đặt bom có được gõ và giá trị _timeBetweenPutBombs, Game.getBombRate() có thỏa mãn hay không
-        if (_input.space) {
+        if (_input.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
             int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
             int yt = Coordinates.pixelToTile( (_y + _sprite.getSize() / 2) - _sprite.getSize() ); //subtract half player height and minus 1 y position
 
             placeBomb(xt,yt);
+            //Giảm bombRate đi 1
             Game.addBombRate(-1);
+            _timeBetweenPutBombs = Bomb.TIME_TO_EXPLODE;
         }
         // TODO:  Game.getBombRate() sẽ trả về số lượng bom có thể đặt liên tiếp tại thời điểm hiện tại
         // TODO: _timeBetweenPutBombs dùng để ngăn chặn Bomber đặt 2 Bomb cùng tại 1 vị trí trong 1 khoảng thời gian quá ngắn
