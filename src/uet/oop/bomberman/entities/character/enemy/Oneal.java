@@ -10,9 +10,7 @@ public class Oneal extends Enemy {
 	
 	public Oneal(int x, int y, Board board) {
 		super(x, y, board, Sprite.oneal_dead, Game.getBomberSpeed(), 200);
-		
 		_sprite = Sprite.oneal_left1;
-		
 		_ai = new AIMedium(_board.getBomber(), this);
 		_direction  = _ai.calculateDirection();
 	}

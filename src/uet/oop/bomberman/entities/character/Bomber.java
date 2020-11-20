@@ -149,21 +149,21 @@ public class Bomber extends Character {
         // TODO: kiểm tra có đối tượng tại vị trí chuẩn bị di chuyển đến và có thể di chuyển tới đó hay không
 
 //        //check top left
-        Entity e = _board.getEntity(x / 16, (y - 10) / 16, this);
+        Entity e = _board.getEntity((x-0.1) / 16, (y - 8) / 16, this);
         if (!e.collide(this))
             return false;
 ////        check top right
-        e = _board.getEntity((x + 10) / 16, (y - 10) / 16, this);
+        e = _board.getEntity((x + 8) / 16, (y - 8) / 16, this);
         if (!e.collide(this))
             return false;
 //
         //check bot left
-        e = _board.getEntity(x / 16, (y) / 16, this);
+        e = _board.getEntity((x-0.1)  / 16, (y-0.1) / 16, this);
         if (!e.collide(this))
             return false;
 //
         //check bot right
-        e = _board.getEntity((x + 10) / 16, (y) / 16, this);
+        e = _board.getEntity((x + 8) / 16, (y-0.1) / 16, this);
         if (!e.collide(this))
             return false;
 

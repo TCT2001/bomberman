@@ -114,6 +114,7 @@ public abstract class Enemy extends Character {
 	@Override
 	public boolean canMove(double x, double y) {
 		Entity e = _board.getEntity((x)/16, (y-10)/16, this);
+		System.out.println(e);
 		if(!e.collide(this))
 			return false;
 ////        check top right
