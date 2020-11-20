@@ -1,19 +1,22 @@
 package uet.oop.bomberman.entities.tile.item;
 
 import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.tile.Tile;
+import uet.oop.bomberman.entities.tile.Wall;
 import uet.oop.bomberman.graphics.Sprite;
 
 public abstract class Item extends Tile {
 
-	protected int effect_duration;
-	protected boolean hasPower = false;
+	protected int effect_duration = -2; //Mặc định khởi tạo là -2
+	protected boolean hasPower = true;
 	protected int currentLevel;
 
 	public Item(int x, int y, Sprite sprite, int currentLevel ) {
 		super(x, y, sprite);
 		this.currentLevel = currentLevel;
+		setAttribute();
 	}
 
 	public int getEffect_duration() {
@@ -40,14 +43,6 @@ public abstract class Item extends Tile {
 		this.currentLevel = currentLevel;
 	}
 
-	public void countDownEffect_Duration() {
-		if (effect_duration > 0) {
-			effect_duration --;
-		} else {
-			hasPower = false;
-		}
-	}
-
 	public abstract void setAttribute();
 
 	@Override
@@ -61,5 +56,4 @@ public abstract class Item extends Tile {
 		}
 		return false;
 	}
-
 }

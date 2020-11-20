@@ -1,6 +1,8 @@
 package uet.oop.bomberman.entities.tile;
 
 import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.character.Bomber;
+import uet.oop.bomberman.entities.tile.item.WallPassItem;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.level.Coordinates;
@@ -17,6 +19,18 @@ public abstract class Tile extends Entity {
 	}
 
 	/**
+	 * Khi an duoc item wall pass
+	 */
+	public boolean checkWallPass() {
+		for (int i = Bomber._powerUps.size()-1; i>=0; i--) {
+			if (Bomber._powerUps.get(i) instanceof WallPassItem) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * Mặc định không cho bất cứ một đối tượng nào đi qua
 	 */
 	@Override
@@ -30,5 +44,5 @@ public abstract class Tile extends Entity {
 	}
 	
 	@Override
-	public void update() {}
+	public void update() { }
 }

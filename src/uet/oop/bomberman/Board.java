@@ -139,7 +139,7 @@ public class Board implements IRender {
     }
 
     public Entity getEntity(double x, double y, Character m) {
-        System.out.println("get entity");
+        //System.out.println("get entity");
         Entity res = null;
 
         res = getFlameSegmentAt((int) x, (int) y);
@@ -154,7 +154,8 @@ public class Board implements IRender {
 
         res = getCharacterAtExcluding((int) x, (int) y, m);
         if (res != null) {
-            System.out.println("character");
+            //TODO
+            //System.out.println("character");
             return res;
         }
 

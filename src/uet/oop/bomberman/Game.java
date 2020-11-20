@@ -35,6 +35,7 @@ public class Game extends Canvas {
     protected static int bombRate = BOMBRATE;
     protected static int bombRadius = BOMBRADIUS;
     protected static double bomberSpeed = BOMBERSPEED;
+    protected static boolean bomberPassWall = false;
 
 
     protected int _screenDelay = SCREENDELAY;
@@ -178,6 +179,14 @@ public class Game extends Canvas {
 
     public static void addBombRate(int i) {
         bombRate += i;
+    }
+
+    public static boolean isBomberPassWall() {
+        return bomberPassWall;
+    }
+
+    public static void setBomberPassWall(boolean bomberPassWall) {
+        Game.bomberPassWall = bomberPassWall;
     }
 
     public void resetScreenDelay() {

@@ -5,7 +5,10 @@ import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.tile.Grass;
+import uet.oop.bomberman.entities.tile.Wall;
+import uet.oop.bomberman.entities.tile.item.FlameItem;
 import uet.oop.bomberman.entities.tile.item.Item;
+import uet.oop.bomberman.entities.tile.item.WallPassItem;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.input.Keyboard;
@@ -21,6 +24,7 @@ public class Bomber extends Character {
     protected Keyboard _input;
 
     public static List<Item> _powerUps = new ArrayList<>();
+    public static List<Integer> duration = new ArrayList<>();
 
     /**
      * nếu giá trị này < 0 thì cho phép đặt đối tượng Bomb tiếp theo,
@@ -54,6 +58,8 @@ public class Bomber extends Character {
         calculateMove();
 
         detectPlaceBomb();
+
+        updateDurationOfPower();
     }
 
     @Override
@@ -149,7 +155,7 @@ public class Bomber extends Character {
         // TODO: kiểm tra có đối tượng tại vị trí chuẩn bị di chuyển đến và có thể di chuyển tới đó hay không
 
 //        //check top left
-        Entity e = _board.getEntity((x-0.1) / 16, (y - 8) / 16, this);
+        Entity e = _board.getEntity((x - 0.1) / 16, (y - 8) / 16, this);
         if (!e.collide(this))
             return false;
 ////        check top right
@@ -158,12 +164,12 @@ public class Bomber extends Character {
             return false;
 //
         //check bot left
-        e = _board.getEntity((x-0.1)  / 16, (y-0.1) / 16, this);
+        e = _board.getEntity((x - 0.1) / 16, (y - 0.1) / 16, this);
         if (!e.collide(this))
             return false;
 //
         //check bot right
-        e = _board.getEntity((x + 8) / 16, (y-0.1) / 16, this);
+        e = _board.getEntity((x + 8) / 16, (y - 0.1) / 16, this);
         if (!e.collide(this))
             return false;
 
@@ -238,7 +244,28 @@ public class Bomber extends Character {
         if (item.isRemoved()) {
             return;
         }
-        item.setAttribute();
         _powerUps.add(item);
+        duration.add(item.getEffect_duration());
     }
+
+    public void updateDurationOfPower() {
+        if (_board.getEntityAt(getXTile(),getYTile()) instanceof Wall) {
+            System.out.println("1");
+        }
+        for (int i = 0; i < duration.size(); i++) {
+            if (duration.get(i) != -1) {
+                int c = duration.get(i);
+                duration.set(i, c - 1);
+            }
+            if (_board.getEntityAt(getXTile(),getYTile()) instanceof Wall) {
+                return;
+            }
+            if (duration.get(i) <= 0 && duration.get(i) != -1) {
+                if (_powerUps.size() == i-1) {
+                    _powerUps.remove(i);
+                }
+            }
+        }
+    }
+
 }

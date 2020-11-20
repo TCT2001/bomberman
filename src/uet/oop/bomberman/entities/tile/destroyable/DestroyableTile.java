@@ -2,6 +2,7 @@ package uet.oop.bomberman.entities.tile.destroyable;
 
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.bomb.Flame;
+import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.tile.Tile;
 import uet.oop.bomberman.graphics.Sprite;
 
@@ -46,6 +47,9 @@ public class DestroyableTile extends Tile {
         // TODO: xử lý khi va chạm với Flame
         if (e instanceof Flame) {
             destroy();
+        }
+        if (e instanceof Bomber && this.checkWallPass()) {
+            return true;
         }
         return false;
     }
