@@ -109,7 +109,6 @@ public class Bomb extends AnimatedEntitiy {
         if(e instanceof Bomber) {
             double diffX = e.getX() - Coordinates.tileToPixel(this.getX()); //Sự chênh nhau của e với bomb theo trục X
             double diffY = e.getY() - Coordinates.tileToPixel(this.getY()); //Sự chênh nhau của e với bomb theo trục Y
-            System.out.println("diffX = " + diffX + "diffY = " + diffY);
 
             //Khi đã ra khỏi bom thì không thể quay lại
             if(!(diffX >= -10 && diffX < 16 && diffY >= 1 && diffY <= 28)) {

@@ -1,5 +1,6 @@
 package uet.oop.bomberman.entities.tile.destroyable;
 
+import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.level.Coordinates;
@@ -22,7 +23,6 @@ public class Brick extends DestroyableTile {
 
 		//Nếu bị nổ, hiện cảnh gạch bị nổ dùng sprite, sau đó render cái entity ở dưới cái gạch bị nổ
 		if(this._destroyed) {
-			System.out.println(x+" "+y);
 			_sprite = movingSprite(Sprite.brick_exploded, Sprite.brick_exploded1, Sprite.brick_exploded2);
 			screen.renderEntityWithBelowSprite(x, y, this, _belowSprite);
 		}
