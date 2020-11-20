@@ -81,7 +81,7 @@ public class FileLevelLoader extends LevelLoader {
                         _board.addEntity(pos,
                                 new LayeredEntity(x, y,
                                         new Grass(x, y, Sprite.grass),
-                                        new BombItem(x, y, Sprite.powerup_flames),
+                                        new BombItem(x, y, Sprite.powerup_bombs, _level),
                                         new Brick(x, y, Sprite.brick)
                                 )
                         );
@@ -90,7 +90,7 @@ public class FileLevelLoader extends LevelLoader {
                         _board.addEntity(pos,
                                 new LayeredEntity(x, y,
                                         new Grass(x, y, Sprite.grass),
-                                        new FlameItem(x, y, Sprite.powerup_flames),
+                                        new FlameItem(x, y, Sprite.powerup_flames, _level),
                                         new Brick(x, y, Sprite.brick)
                                 )
                         );
@@ -99,7 +99,7 @@ public class FileLevelLoader extends LevelLoader {
                         _board.addEntity(pos,
                                 new LayeredEntity(x, y,
                                         new Grass(x, y, Sprite.grass),
-                                        new SpeedItem(x, y, Sprite.powerup_flames),
+                                        new SpeedItem(x, y, Sprite.powerup_speed, _level),
                                         new Brick(x, y, Sprite.brick)
                                 )
                         );

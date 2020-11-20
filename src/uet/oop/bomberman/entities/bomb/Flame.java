@@ -80,6 +80,10 @@ public class Flame extends Entity {
 			if(a instanceof Character) {
 				++radius; //explosion has to be below the mob. Cho phép đi qua
 			}
+			//Fix Bug StackOverFlow when 2 bomb is adjacent
+			if(a instanceof Bomb) {
+				break;
+			}
 
 			if(a.collide(this) == false) {
 				//Không cho đi qua

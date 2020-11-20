@@ -104,6 +104,7 @@ public class Game extends Canvas {
     }
 
     private void update() {
+        //System.out.println(bombRate);
         _input.update();
         _board.update();
     }
