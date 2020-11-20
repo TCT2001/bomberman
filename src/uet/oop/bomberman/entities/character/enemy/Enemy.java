@@ -77,10 +77,15 @@ public abstract class Enemy extends Character {
 		// TODO: sử dụng canMove() để kiểm tra xem có thể di chuyển tới điểm đã tính toán hay không
 		// TODO: sử dụng move() để di chuyển
 		// TODO: nhớ cập nhật lại giá trị cờ _moving khi thay đổi trạng thái di chuyển
-		int move = _ai.calculateDirection();
+		if (_steps <= 0){
+			_direction = _ai.calculateDirection();
+			_steps = MAX_STEPS;
+		}
+
+		_steps--;
 		int x = 0;
 		int y = 0;
-		switch (move) {
+		switch (_direction) {
 			case 0:
 				y--;
 				break;
@@ -99,6 +104,8 @@ public abstract class Enemy extends Character {
 
 		if (canMove(x+_x,y+_y)) {
 			move(x,y);
+		} else {
+			_direction = _ai.calculateDirection();
 		}
 
 
@@ -113,23 +120,23 @@ public abstract class Enemy extends Character {
 	
 	@Override
 	public boolean canMove(double x, double y) {
-		Entity e = _board.getEntity((x)/16, (y-10)/16, this);
-		System.out.println(e);
-		if(!e.collide(this))
+		//run test =>
+		Entity e = _board.getEntity((x) / 16, (y - 15) / 16, this);
+		if (!e.collide(this))
 			return false;
 ////        check top right
-		e = _board.getEntity((x+10)/16, (y-10)/16, this);
-		if(!e.collide(this))
+		e = _board.getEntity((x + 15) / 16, (y - 15) / 16, this);
+		if (!e.collide(this))
 			return false;
 //
 		//check bot left
-		e = _board.getEntity((x)/16, (y-0.1)/16, this);
-		if(!e.collide(this))
+		e = _board.getEntity((x)  / 16, (y-1) / 16, this);
+		if (!e.collide(this))
 			return false;
 //
 		//check bot right
-		e = _board.getEntity((x+10)/16, (y-0.1)/16, this);
-		if(!e.collide(this))
+		e = _board.getEntity((x + 15) / 16, (y-1) / 16, this);
+		if (!e.collide(this))
 			return false;
 
 
