@@ -233,6 +233,18 @@ public class Board implements IRender {
 
         return null;
     }
+//    public Character getCharacterAt(double x, double y) {
+//        Iterator<Character> itr = _characters.iterator();
+//
+//        Character cur;
+//        while (itr.hasNext()) {
+//            cur = itr.next();
+//            if (cur.getXTile() == x && cur.getYTile() == y) {
+//                return cur;
+//            }
+//        }
+//        return null;
+//    }
 
     public Entity getEntityAt(double x, double y) {
         return _entities[(int) x + (int) y * _levelLoader.getWidth()];

@@ -69,13 +69,39 @@ public abstract class Enemy extends Character {
 			
 		screen.renderEntity((int)_x, (int)_y - _sprite.SIZE, this);
 	}
-	
+
+	//0 1 2 3 up right down left
 	@Override
 	public void calculateMove() {
 		// TODO: Tính toán hướng đi và di chuyển Enemy theo _ai và cập nhật giá trị cho _direction
 		// TODO: sử dụng canMove() để kiểm tra xem có thể di chuyển tới điểm đã tính toán hay không
 		// TODO: sử dụng move() để di chuyển
 		// TODO: nhớ cập nhật lại giá trị cờ _moving khi thay đổi trạng thái di chuyển
+		int move = _ai.calculateDirection();
+		int x = 0;
+		int y = 0;
+		switch (move) {
+			case 0:
+				y--;
+				break;
+			case 1:
+				x++;
+				break;
+			case 2:
+				y++;
+				break;
+			case 3:
+				x--;
+				break;
+				default:
+					x--;
+		}
+
+		if (canMove(x+_x,y+_y)) {
+			move(x,y);
+		}
+
+
 	}
 	
 	@Override
@@ -87,8 +113,26 @@ public abstract class Enemy extends Character {
 	
 	@Override
 	public boolean canMove(double x, double y) {
-		// TODO: kiểm tra có đối tượng tại vị trí chuẩn bị di chuyển đến và có thể di chuyển tới đó hay không
-		return false;
+		Entity e = _board.getEntity((x)/16, (y-10)/16, this);
+		if(!e.collide(this))
+			return false;
+////        check top right
+		e = _board.getEntity((x+10)/16, (y-10)/16, this);
+		if(!e.collide(this))
+			return false;
+//
+		//check bot left
+		e = _board.getEntity((x)/16, (y-0.1)/16, this);
+		if(!e.collide(this))
+			return false;
+//
+		//check bot right
+		e = _board.getEntity((x+10)/16, (y-0.1)/16, this);
+		if(!e.collide(this))
+			return false;
+
+
+		return true;
 	}
 
 	@Override
