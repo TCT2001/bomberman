@@ -10,9 +10,11 @@ import uet.oop.bomberman.entities.tile.Grass;
 import uet.oop.bomberman.entities.tile.Wall;
 import uet.oop.bomberman.entities.tile.destroyable.Brick;
 import uet.oop.bomberman.entities.tile.item.BombItem;
+import uet.oop.bomberman.entities.tile.item.BombPassItem;
 import uet.oop.bomberman.entities.tile.item.FlameItem;
 import uet.oop.bomberman.entities.tile.item.SpeedItem;
-import uet.oop.bomberman.entities.tile.item.WallPassItem;
+import uet.oop.bomberman.entities.tile.item.durationItem.FlamePassItem;
+import uet.oop.bomberman.entities.tile.item.durationItem.WallPassItem;
 import uet.oop.bomberman.exceptions.LoadLevelException;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
@@ -111,6 +113,24 @@ public class FileLevelLoader extends LevelLoader {
                                 new LayeredEntity(x, y,
                                         new Grass(x, y, Sprite.grass),
                                         new WallPassItem(x, y, Sprite.powerup_wallpass, _level),
+                                        new Brick(x, y, Sprite.brick)
+                                )
+                        );
+                        break;
+                    case 'k':
+                        _board.addEntity(pos,
+                                new LayeredEntity(x, y,
+                                        new Grass(x, y, Sprite.grass),
+                                        new BombPassItem(x, y, Sprite.powerup_bombpass, _level),
+                                        new Brick(x, y, Sprite.brick)
+                                )
+                        );
+                        break;
+                    case 't':
+                        _board.addEntity(pos,
+                                new LayeredEntity(x, y,
+                                        new Grass(x, y, Sprite.grass),
+                                        new FlamePassItem(x, y, Sprite.powerup_flamepass, _level),
                                         new Brick(x, y, Sprite.brick)
                                 )
                         );

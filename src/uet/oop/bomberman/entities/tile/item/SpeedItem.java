@@ -12,7 +12,6 @@ public class SpeedItem extends Item {
 
 	@Override
 	public void setAttribute() {
-		this.effect_duration = -1; //always has this power in current level
 		this.hasPower = true;
 		Game.addBomberSpeed(0.1); //Increase 0.1
 	}

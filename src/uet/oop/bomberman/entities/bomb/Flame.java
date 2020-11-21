@@ -2,6 +2,7 @@ package uet.oop.bomberman.entities.bomb;
 
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.Character;
 import uet.oop.bomberman.graphics.Screen;
 
@@ -114,7 +115,14 @@ public class Flame extends Entity {
 
 	@Override
 	public boolean collide(Entity e) {
+		// TODO: xứ lý va chạm với Bomber khi có power pass flame
+		if (e instanceof Bomber && Game.isBomberPassFlame()) {
+			return true;
+		}
 		// TODO: xử lý va chạm với Bomber, Enemy. Chú ý đối tượng này có vị trí chính là vị trí của Bomb đã nổ
+		if (e instanceof Character) {
+			((Character) e).kill();
+		}
 		return true;
 	}
 }

@@ -13,7 +13,6 @@ import uet.oop.bomberman.level.Coordinates;
 public class Bomb extends AnimatedEntitiy {
 
     protected double _timeToExplode = 120; //2 seconds
-    public static final int TIME_TO_EXPLODE = 120;
     public int _timeAfter = 20;
 
     protected Board _board;
@@ -105,6 +104,10 @@ public class Bomb extends AnimatedEntitiy {
 
     @Override
     public boolean collide(Entity e) {
+        // TODO: xử lý khi Bomber có thể di xuyên qua bomb nhờ item bombPass
+        if (e instanceof Bomber && Game.isBomberPassBomb()) {
+            return true;
+        }
         // TODO: xử lý khi Bomber đi ra sau khi vừa đặt bom (_allowedToPassBomb)
         if(e instanceof Bomber) {
             double diffX = e.getX() - Coordinates.tileToPixel(this.getX()); //Sự chênh nhau của e với bomb theo trục X

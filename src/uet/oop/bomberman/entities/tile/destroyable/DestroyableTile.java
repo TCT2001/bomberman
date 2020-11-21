@@ -48,9 +48,6 @@ public class DestroyableTile extends Tile {
         if (e instanceof Flame) {
             destroy();
         }
-        if (e instanceof Bomber && this.checkWallPass()) {
-            return true;
-        }
         return false;
     }
 

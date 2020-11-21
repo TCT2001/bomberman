@@ -36,6 +36,8 @@ public class Game extends Canvas {
     protected static int bombRadius = BOMBRADIUS;
     protected static double bomberSpeed = BOMBERSPEED;
     protected static boolean bomberPassWall = false;
+    protected static boolean bomberPassBomb = false;
+    protected static boolean bomberPassFlame = false;
 
 
     protected int _screenDelay = SCREENDELAY;
@@ -105,7 +107,6 @@ public class Game extends Canvas {
     }
 
     private void update() {
-        //System.out.println(bombRate);
         _input.update();
         _board.update();
     }
@@ -187,6 +188,22 @@ public class Game extends Canvas {
 
     public static void setBomberPassWall(boolean bomberPassWall) {
         Game.bomberPassWall = bomberPassWall;
+    }
+
+    public static boolean isBomberPassBomb() {
+        return bomberPassBomb;
+    }
+
+    public static void setBomberPassBomb(boolean bomberPassBomb) {
+        Game.bomberPassBomb = bomberPassBomb;
+    }
+
+    public static boolean isBomberPassFlame() {
+        return bomberPassFlame;
+    }
+
+    public static void setBomberPassFlame(boolean bomberPassFlame) {
+        Game.bomberPassFlame = bomberPassFlame;
     }
 
     public void resetScreenDelay() {

@@ -4,11 +4,12 @@ import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.bomb.Bomb;
-import uet.oop.bomberman.entities.tile.Grass;
+import uet.oop.bomberman.entities.bomb.Flame;
+import uet.oop.bomberman.entities.character.enemy.Enemy;
 import uet.oop.bomberman.entities.tile.Wall;
-import uet.oop.bomberman.entities.tile.item.FlameItem;
 import uet.oop.bomberman.entities.tile.item.Item;
-import uet.oop.bomberman.entities.tile.item.WallPassItem;
+import uet.oop.bomberman.entities.tile.item.durationItem.DurationItem;
+import uet.oop.bomberman.entities.tile.item.durationItem.WallPassItem;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.input.Keyboard;
@@ -23,7 +24,8 @@ public class Bomber extends Character {
     private List<Bomb> _bombs;
     protected Keyboard _input;
 
-    public static List<Item> _powerUps = new ArrayList<>();
+    public static List<Item> permanentPowerUps = new ArrayList<>();
+    public static List<Item> temporaryPowerUps = new ArrayList<>();
     public static List<Integer> duration = new ArrayList<>();
 
     /**
@@ -199,8 +201,22 @@ public class Bomber extends Character {
 
     @Override
     public boolean collide(Entity e) {
+        // TODO : xử lý va chạm với Flame khi có power kháng lửa
+        if (e instanceof Flame && Game.isBomberPassFlame()) {
+            return true;
+        }
+
         // TODO: xử lý va chạm với Flame
+        if (e instanceof Flame) {
+            kill();
+            return false;
+        }
+
         // TODO: xử lý va chạm với Enemy
+        if (e instanceof Enemy) {
+            kill();
+            return true;
+        }
 
         return true;
     }
@@ -240,29 +256,37 @@ public class Bomber extends Character {
         }
     }
 
-    public void addPowerup(Item item) {
+    public void addPower(Item item) {
         if (item.isRemoved()) {
             return;
         }
-        _powerUps.add(item);
-        duration.add(item.getEffect_duration());
+        item.setAttribute();
+        if (item instanceof DurationItem) {
+            temporaryPowerUps.add(item);
+            duration.add(((DurationItem) item).getDuration());
+        } else {
+            permanentPowerUps.add(item);
+        }
     }
 
     public void updateDurationOfPower() {
-        if (_board.getEntityAt(getXTile(),getYTile()) instanceof Wall) {
-            System.out.println("1");
-        }
         for (int i = 0; i < duration.size(); i++) {
             if (duration.get(i) != -1) {
                 int c = duration.get(i);
                 duration.set(i, c - 1);
             }
-            if (_board.getEntityAt(getXTile(),getYTile()) instanceof Wall) {
+            if (_board.getEntityAt(getXTile(), getYTile()) instanceof Wall) {
                 return;
             }
             if (duration.get(i) <= 0 && duration.get(i) != -1) {
-                if (_powerUps.size() == i-1) {
-                    _powerUps.remove(i);
+                if (temporaryPowerUps.size() >= i - 1) {
+                    /**
+                     * Xu ly trong Game.java cac chuc nang bi xoa
+                     */
+                    if (temporaryPowerUps.get(i) instanceof WallPassItem) {
+                        Game.setBomberPassWall(false);
+                    }
+                    temporaryPowerUps.remove(i);
                 }
             }
         }
