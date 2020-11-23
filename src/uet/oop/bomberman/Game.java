@@ -136,7 +136,7 @@ public class Game extends Canvas {
                     _board.setShow(-1);
                     _paused = false;
                 }
-
+                //TODO : Là cái trước show level trước khi vào game
                 renderScreen();
             } else {
                 renderGame();
