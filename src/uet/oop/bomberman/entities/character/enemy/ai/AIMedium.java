@@ -17,10 +17,18 @@ public class AIMedium extends AI {
     public int calculateDirection() {
         // TODO: cài đặt thuật toán tìm đường đi
         //can bang vi tri enemy voi bomber
+        if(_bomber == null || _e == null) {
+            //check null pointer
+            return random.nextInt(4);
+        }
         //move can bang ko dc thi move de di chuyen
         double deltaX = _bomber.getX() - _e.getX() > 0 ? 1 : -1;
         double deltaY = _bomber.getY() - _e.getY() > 0 ? 1 : -1;
-
+        if (Math.abs(_bomber.getX() - _e.getX()) < 3) {
+            if (_e.canMove(_e.getX(), _e.getY() + deltaY)) {
+                return deltaY < 0 ? 0 : 2;
+            }
+        }
         //can bang vi tri bomber
         if (_e.canMove(deltaX + _e.getX(), _e.getY())) {
             return deltaX < 0 ? 3 : 1;

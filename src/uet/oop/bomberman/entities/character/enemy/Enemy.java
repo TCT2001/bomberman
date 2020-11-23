@@ -100,14 +100,14 @@ public abstract class Enemy extends Character {
             case 3:
                 x--;
                 break;
-            default:
-                x--;
         }
 
         if (canMove(x + _x, y + _y)) {
             move(x, y);
+            _moving = true;
         } else {
-            _direction = _ai.calculateDirection();
+            _steps -= 2;
+            _moving = false;
         }
 
 
@@ -124,22 +124,26 @@ public abstract class Enemy extends Character {
     public boolean canMove(double x, double y) {
         //run test =>
         Entity e = _board.getEntity((x) / 16, (y - 15) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 ////        check top right
         e = _board.getEntity((x + 15) / 16, (y - 15) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 //
         //check bot left
         e = _board.getEntity((x) / 16, (y - 1) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 //
         //check bot right
         e = _board.getEntity((x + 15) / 16, (y - 1) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 
 
         return true;

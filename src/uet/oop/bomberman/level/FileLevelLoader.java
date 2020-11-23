@@ -43,7 +43,7 @@ public class FileLevelLoader extends LevelLoader {
         try {
             File myObj = new File(pathFile);
             Scanner myReader = new Scanner(myObj);
-            int levels = myReader.nextInt();
+             _level = myReader.nextInt();
             _height = myReader.nextInt();
             _width = myReader.nextInt();
             _map = new char[_height][_width];
@@ -143,12 +143,12 @@ public class FileLevelLoader extends LevelLoader {
                         break;
                     case '1':
                         _board.addCharacter( new Balloon(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-                        _board.addEntity(x + y * _width, new Grass(x, y, Sprite.grass));
+                        _board.addEntity(pos, new Grass(x, y, Sprite.grass));
                         break;
                     case '2':
                         _board.addCharacter(new Oneal(Coordinates.tileToPixel(x),
                                 Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-                        _board.addEntity(x + y * _width, new Grass(x, y, Sprite.grass));
+                        _board.addEntity(pos, new Grass(x, y, Sprite.grass));
                         break;
                     default:
                         _board.addEntity(pos, new Grass(x, y, Sprite.grass));
