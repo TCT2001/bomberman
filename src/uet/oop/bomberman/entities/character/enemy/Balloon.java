@@ -9,12 +9,13 @@ public class Balloon extends Enemy {
 	
 	
 	public Balloon(int x, int y, Board board) {
-		super(x, y, board, Sprite.balloom_dead, Game.getBomberSpeed() / 8, 100);
+		super(x, y, board, Sprite.balloom_dead, Game.getBomberSpeed()/1.2, 100);
 		
 		_sprite = Sprite.balloom_left1;
 		
 		_ai = new AILow();
 		_direction = _ai.calculateDirection();
+		MAX_STEPS *= 2;
 	}
 
 	@Override

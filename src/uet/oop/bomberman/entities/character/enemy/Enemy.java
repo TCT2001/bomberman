@@ -20,7 +20,7 @@ public abstract class Enemy extends Character {
     protected double _speed;
     protected AI _ai;
 
-    protected final double MAX_STEPS;
+    protected double MAX_STEPS;
     protected final double rest;
     protected double _steps;
 
@@ -33,7 +33,7 @@ public abstract class Enemy extends Character {
         _points = points;
         _speed = speed;
 
-        MAX_STEPS = Game.TILES_SIZE / _speed;
+        MAX_STEPS = Game.TILES_SIZE  / _speed;
         rest = (MAX_STEPS - (int) MAX_STEPS) / MAX_STEPS;
         _steps = MAX_STEPS;
 
@@ -84,7 +84,7 @@ public abstract class Enemy extends Character {
             _steps = MAX_STEPS;
         }
 
-        _steps--;
+        _steps -= 1 ;
         int x = 0;
         int y = 0;
         switch (_direction) {
@@ -105,9 +105,11 @@ public abstract class Enemy extends Character {
         }
 
         if (canMove(x + _x, y + _y)) {
-            move(x, y);
+            move(x*_speed, y*_speed);
+            _moving = true;
         } else {
-            _direction = _ai.calculateDirection();
+            _steps -= 3;
+            _moving = false;
         }
 
 
@@ -124,22 +126,26 @@ public abstract class Enemy extends Character {
     public boolean canMove(double x, double y) {
         //run test =>
         Entity e = _board.getEntity((x) / 16, (y - 15) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 ////        check top right
         e = _board.getEntity((x + 15) / 16, (y - 15) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 //
         //check bot left
         e = _board.getEntity((x) / 16, (y - 1) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 //
         //check bot right
         e = _board.getEntity((x + 15) / 16, (y - 1) / 16, this);
-        if (!e.collide(this))
+        if (e != null && !e.collide(this)) {
             return false;
+        }
 
 
         return true;

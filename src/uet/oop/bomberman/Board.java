@@ -104,14 +104,17 @@ public class Board implements IRender {
     }
 
     protected void detectEndGame() {
-        if (_time <= 0)
+        if (_time <= 0) {
             endGame();
+        }
     }
 
     public void endGame() {
         _screenToShow = 1;
-        _game.resetScreenDelay();
-        _game.pause();
+//        _game.resetScreenDelay();
+//        _game.pause();
+//        _game.resetScreenDelay();
+        _game.stop();
     }
 
     public boolean detectNoEnemies() {

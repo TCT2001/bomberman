@@ -222,4 +222,9 @@ public class Game extends Canvas {
         _paused = true;
     }
 
+    public void stop(){
+        _running = false;
+        renderScreen();
+    }
+
 }

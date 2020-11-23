@@ -43,7 +43,7 @@ public class FileLevelLoader extends LevelLoader {
         try {
             File myObj = new File(pathFile);
             Scanner myReader = new Scanner(myObj);
-            int levels = myReader.nextInt();
+             _level = myReader.nextInt();
             _height = myReader.nextInt();
             _width = myReader.nextInt();
             _map = new char[_height][_width];

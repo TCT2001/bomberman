@@ -22,8 +22,10 @@ public class AIMedium extends AI {
         double deltaY = _bomber.getY() - _e.getY() > 0 ? 1 : -1;
 
         //can bang vi tri bomber
-        if (_e.canMove(deltaX + _e.getX(), _e.getY())) {
-            return deltaX < 0 ? 3 : 1;
+        if (Math.abs(_bomber.getX() - _e.getX()) > 3) {
+            if (_e.canMove(deltaX + _e.getX(), _e.getY())) {
+                return deltaX < 0 ? 3 : 1;
+            }
         }
         if (_e.canMove(_e.getX(), _e.getY() + deltaY)) {
             return deltaY < 0 ? 0 : 2;
