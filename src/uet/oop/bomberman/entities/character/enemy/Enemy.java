@@ -10,6 +10,7 @@ import uet.oop.bomberman.entities.character.Character;
 import uet.oop.bomberman.entities.character.enemy.ai.AI;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 import java.awt.*;
 
@@ -155,6 +156,7 @@ public abstract class Enemy extends Character {
         // TODO: xử lý va chạm với Flame
         if (e instanceof Flame) {
             kill();
+            Sound.playMosterDie();
             return false;
         }
 

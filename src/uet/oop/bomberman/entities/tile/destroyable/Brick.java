@@ -4,6 +4,7 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.level.Coordinates;
+import uet.oop.bomberman.sound.Sound;
 
 public class Brick extends DestroyableTile {
 	public int isUpdate = 1;
@@ -25,6 +26,7 @@ public class Brick extends DestroyableTile {
 		if(this._destroyed) {
 			_sprite = movingSprite(Sprite.brick_exploded, Sprite.brick_exploded1, Sprite.brick_exploded2);
 			screen.renderEntityWithBelowSprite(x, y, this, _belowSprite);
+			Sound.playBroken();
 		}
 		else
 			screen.renderEntity( x, y, this);

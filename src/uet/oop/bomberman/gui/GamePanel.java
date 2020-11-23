@@ -11,7 +11,6 @@ import java.awt.*;
 public class GamePanel extends JPanel {
 
     private Game _game;
-    public boolean canVisible = false;
 
     public GamePanel(Frame frame) {
         setLayout(new BorderLayout());
@@ -19,9 +18,9 @@ public class GamePanel extends JPanel {
 
         _game = new Game(frame);
         add(_game);
-        _game.setVisible(canVisible);
+        _game.setVisible(true);
 
-        setVisible(canVisible);
+        setVisible(true);
         setFocusable(true);
     }
 

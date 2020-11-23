@@ -4,6 +4,7 @@ import uet.oop.bomberman.Board;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 public class Portal extends Tile {
 
@@ -25,6 +26,7 @@ public class Portal extends Tile {
             }
 
             if (e.getXTile() == getX() && e.getYTile() == getY()) {
+                Sound.playWin();
                 board.nextLevel();
             }
             return true;
