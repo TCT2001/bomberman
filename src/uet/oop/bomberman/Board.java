@@ -110,8 +110,7 @@ public class Board implements IRender {
 
     public void endGame() {
         _screenToShow = 1;
-        _game.resetScreenDelay();
-        _game.pause();
+        _game.stop();
     }
 
     public boolean detectNoEnemies() {

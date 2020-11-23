@@ -106,7 +106,7 @@ public abstract class Enemy extends Character {
             move(x, y);
             _moving = true;
         } else {
-            _steps -= 2;
+            _steps -= 3;
             _moving = false;
         }
 

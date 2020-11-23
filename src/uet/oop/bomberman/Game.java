@@ -122,6 +122,7 @@ public class Game extends Canvas {
         int updates = 0;
         requestFocus();
         while (_running) {
+            System.out.println("? running ");
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -220,6 +221,11 @@ public class Game extends Canvas {
 
     public void pause() {
         _paused = true;
+    }
+    public void stop(){
+        _running = false;
+        renderScreen();
+//        _board.setShow(1);
     }
 
 }
