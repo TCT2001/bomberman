@@ -31,7 +31,7 @@ public class Board implements IRender {
     protected List<Bomb> _bombs = new ArrayList<>();
     private List<Message> _messages = new ArrayList<>();
 
-    private int _screenToShow = -1; //1:endgame, 2:changelevel, 3:paused
+    private int _screenToShow = -1; //1:endgame, 2:changelevel, 3:paused, 4:menu
 
     private int _time = Game.TIME;
     private int _points = Game.POINTS;
@@ -240,18 +240,7 @@ public class Board implements IRender {
 
         return null;
     }
-//    public Character getCharacterAt(double x, double y) {
-//        Iterator<Character> itr = _characters.iterator();
-//
-//        Character cur;
-//        while (itr.hasNext()) {
-//            cur = itr.next();
-//            if (cur.getXTile() == x && cur.getYTile() == y) {
-//                return cur;
-//            }
-//        }
-//        return null;
-//    }
+
 
     public Entity getEntityAt(double x, double y) {
         return _entities[(int) x + (int) y * _levelLoader.getWidth()];
