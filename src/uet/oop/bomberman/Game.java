@@ -3,6 +3,7 @@ package uet.oop.bomberman;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.gui.Frame;
 import uet.oop.bomberman.input.Keyboard;
+import uet.oop.bomberman.sound.Sound;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -26,6 +27,7 @@ public class Game extends Canvas {
     private static final int BOMBRATE = 1;
     private static final int BOMBRADIUS = 1;
     private static final double BOMBERSPEED = 1.0;
+    public static final int LIVES = 3; // mang
 
     public static final int TIME = 200;
     public static final int POINTS = 0;
@@ -38,6 +40,7 @@ public class Game extends Canvas {
     protected static boolean bomberPassWall = false;
     protected static boolean bomberPassBomb = false;
     protected static boolean bomberPassFlame = false;
+    protected static int lives = LIVES;
 
 
     protected int _screenDelay = SCREENDELAY;
@@ -121,7 +124,9 @@ public class Game extends Canvas {
         int frames = 0;
         int updates = 0;
         requestFocus();
+        Sound.playBackGround();
         while (_running) {
+            System.out.println("? running ");
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -136,7 +141,7 @@ public class Game extends Canvas {
                     _board.setShow(-1);
                     _paused = false;
                 }
-
+                //TODO : Là cái trước show level trước khi vào game
                 renderScreen();
             } else {
                 renderGame();
@@ -147,6 +152,7 @@ public class Game extends Canvas {
             if (System.currentTimeMillis() - timer > 1000) {
                 _frame.setTime(_board.subtractTime());
                 _frame.setPoints(_board.getPoints());
+                _frame.setLives(_board.get_live());
                 timer += 1000;
                 _frame.setTitle(TITLE + " | " + updates + " rate, " + frames + " fps");
                 updates = 0;
@@ -220,6 +226,11 @@ public class Game extends Canvas {
 
     public void pause() {
         _paused = true;
+    }
+    public void stop(){
+        _running = false;
+        renderScreen();
+//        _board.setShow(1);
     }
 
     public void stop(){

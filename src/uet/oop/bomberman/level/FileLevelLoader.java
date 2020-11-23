@@ -2,11 +2,13 @@ package uet.oop.bomberman.level;
 
 import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
+import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.LayeredEntity;
 import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.enemy.Balloon;
 import uet.oop.bomberman.entities.character.enemy.Oneal;
 import uet.oop.bomberman.entities.tile.Grass;
+import uet.oop.bomberman.entities.tile.Portal;
 import uet.oop.bomberman.entities.tile.Wall;
 import uet.oop.bomberman.entities.tile.destroyable.Brick;
 import uet.oop.bomberman.entities.tile.item.BombItem;
@@ -81,6 +83,14 @@ public class FileLevelLoader extends LevelLoader {
                                 )
                         );
                         break;
+                    case 'x':
+                        _board.addEntity(x + y * _width,
+                                new LayeredEntity(x, y,
+                                        new Portal(x, y, Sprite.portal,_board),
+                                        new Brick(x, y, Sprite.brick)
+                                )
+                        );
+                        break;
                     case 'b':
                         _board.addEntity(pos,
                                 new LayeredEntity(x, y,
@@ -143,12 +153,12 @@ public class FileLevelLoader extends LevelLoader {
                         break;
                     case '1':
                         _board.addCharacter( new Balloon(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-                        _board.addEntity(x + y * _width, new Grass(x, y, Sprite.grass));
+                        _board.addEntity(pos, new Grass(x, y, Sprite.grass));
                         break;
                     case '2':
                         _board.addCharacter(new Oneal(Coordinates.tileToPixel(x),
                                 Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-                        _board.addEntity(x + y * _width, new Grass(x, y, Sprite.grass));
+                        _board.addEntity(pos, new Grass(x, y, Sprite.grass));
                         break;
                     default:
                         _board.addEntity(pos, new Grass(x, y, Sprite.grass));

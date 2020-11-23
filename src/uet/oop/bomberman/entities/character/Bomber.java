@@ -14,6 +14,7 @@ import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.input.Keyboard;
 import uet.oop.bomberman.level.Coordinates;
+import uet.oop.bomberman.sound.Sound;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -104,6 +105,7 @@ public class Bomber extends Character {
     protected void placeBomb(int x, int y) {
         // TODO: thực hiện tạo đối tượng bom, đặt vào vị trí (x, y) trên board
         this._board.addBomb(new Bomb(x, y, this._board));
+        Sound.playPlaceNewBomb();
     }
 
     private void clearBombs() {
@@ -209,12 +211,14 @@ public class Bomber extends Character {
         // TODO: xử lý va chạm với Flame
         if (e instanceof Flame) {
             kill();
+            Sound.playBomberDie();
             return false;
         }
 
         // TODO: xử lý va chạm với Enemy
         if (e instanceof Enemy) {
             kill();
+            Sound.playBomberDie();
             return true;
         }
 

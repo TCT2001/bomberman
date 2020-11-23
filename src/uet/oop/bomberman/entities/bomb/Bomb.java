@@ -9,6 +9,7 @@ import uet.oop.bomberman.entities.character.Character;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.level.Coordinates;
+import uet.oop.bomberman.sound.Sound;
 
 public class Bomb extends AnimatedEntitiy {
 
@@ -86,8 +87,9 @@ public class Bomb extends AnimatedEntitiy {
         // TODO: tạo các Flame, toả ra 4 hướng
         _flames = new Flame[4];
         for (int i = 0; i < 4; i++) {
-			_flames[i] = new Flame((int)_x, (int)_y,i, Game.getBombRadius());
+            _flames[i] = new Flame((int) _x, (int) _y, i, Game.getBombRadius());
         }
+        Sound.playBombExplose();
     }
 
     public FlameSegment flameAt(int x, int y) {
@@ -109,12 +111,12 @@ public class Bomb extends AnimatedEntitiy {
             return true;
         }
         // TODO: xử lý khi Bomber đi ra sau khi vừa đặt bom (_allowedToPassBomb)
-        if(e instanceof Bomber) {
+        if (e instanceof Bomber) {
             double diffX = e.getX() - Coordinates.tileToPixel(this.getX()); //Sự chênh nhau của e với bomb theo trục X
             double diffY = e.getY() - Coordinates.tileToPixel(this.getY()); //Sự chênh nhau của e với bomb theo trục Y
 
             //Khi đã ra khỏi bom thì không thể quay lại
-            if(!(diffX >= -10 && diffX < 16 && diffY >= 1 && diffY <= 28)) {
+            if (!(diffX >= -10 && diffX < 16 && diffY >= 1 && diffY <= 28)) {
                 _allowedToPassBomb = false;
             }
             return _allowedToPassBomb;

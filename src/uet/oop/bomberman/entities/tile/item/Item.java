@@ -4,6 +4,7 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.tile.Tile;
 import uet.oop.bomberman.graphics.Sprite;
+import uet.oop.bomberman.sound.Sound;
 
 public abstract class Item extends Tile {
 
@@ -39,6 +40,7 @@ public abstract class Item extends Tile {
 		if (e instanceof Bomber) {
 			((Bomber) e).addPower(this);
 			//Sau khi ăn item, item biến mất
+			Sound.playGetNewItem();
 			remove();
 			return true;
 		}
