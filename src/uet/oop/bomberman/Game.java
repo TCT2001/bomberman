@@ -233,9 +233,4 @@ public class Game extends Canvas {
 //        _board.setShow(1);
     }
 
-    public void stop(){
-        _running = false;
-        renderScreen();
-    }
-
 }

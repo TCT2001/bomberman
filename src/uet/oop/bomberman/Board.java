@@ -12,6 +12,7 @@ import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.input.Keyboard;
 import uet.oop.bomberman.level.FileLevelLoader;
 import uet.oop.bomberman.level.LevelLoader;
+import uet.oop.bomberman.sound.Sound;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -31,10 +32,11 @@ public class Board implements IRender {
     protected List<Bomb> _bombs = new ArrayList<>();
     private List<Message> _messages = new ArrayList<>();
 
-    private int _screenToShow = -1; //1:endgame, 2:changelevel, 3:paused
+    private int _screenToShow = -1; //1:endgame, 2:changelevel, 3:paused, 4:menu
 
     private int _time = Game.TIME;
     private int _points = Game.POINTS;
+    private int _live = Game.lives;
 
     public Board(Game game) {
         _game = game;
@@ -81,6 +83,7 @@ public class Board implements IRender {
     }
 
     public void nextLevel() {
+        Sound.playNextLevel();
         loadLevel(_levelLoader.getLevel() + 1);
     }
 
@@ -104,16 +107,13 @@ public class Board implements IRender {
     }
 
     protected void detectEndGame() {
-        if (_time <= 0) {
+        if (_time <= 0)
             endGame();
-        }
     }
 
     public void endGame() {
+        Sound.playLose();
         _screenToShow = 1;
-//        _game.resetScreenDelay();
-//        _game.pause();
-//        _game.resetScreenDelay();
         _game.stop();
     }
 
@@ -244,18 +244,10 @@ public class Board implements IRender {
 
         return null;
     }
-//    public Character getCharacterAt(double x, double y) {
-//        Iterator<Character> itr = _characters.iterator();
-//
-//        Character cur;
-//        while (itr.hasNext()) {
-//            cur = itr.next();
-//            if (cur.getXTile() == x && cur.getYTile() == y) {
-//                return cur;
-//            }
-//        }
-//        return null;
-//    }
+
+    public int get_live() {
+        return _live;
+    }
 
     public Entity getEntityAt(double x, double y) {
         return _entities[(int) x + (int) y * _levelLoader.getWidth()];

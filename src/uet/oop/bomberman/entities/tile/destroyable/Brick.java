@@ -7,7 +7,6 @@ import uet.oop.bomberman.level.Coordinates;
 import uet.oop.bomberman.sound.Sound;
 
 public class Brick extends DestroyableTile {
-	public int isUpdate = 1;
 	public Brick(int x, int y, Sprite sprite) {
 		super(x, y, sprite);
 	}
