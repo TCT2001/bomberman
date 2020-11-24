@@ -20,6 +20,15 @@ public class Minvo extends Enemy {
         MAX_STEPS *= 2;
     }
 
+
+    @Override
+    public void move(double xa, double ya) {
+        double speed = _speed*(random.nextInt(199) / 199.0 + 0.3);//0.3 - 1.3
+        if (!_alive) return;
+        _y += ya * speed;
+        _x += xa * speed;
+    }
+
     @Override
     protected void chooseSprite() {
         switch(_direction) {
@@ -33,9 +42,9 @@ public class Minvo extends Enemy {
                 break;
         }
     }
-    @Override
-    public void calculateMove() {
-        super.calculateMove();
-        _speed *= (random.nextInt(199) / 221.0 + 0.3);//0.7 - 1.2
-    }
+//    @Override
+//    public void calculateMove() {
+//        super.calculateMove();
+//        _speed *= (random.nextInt(199) / 221.0 + 0.3);//0.7 - 1.2
+//    }
 }
