@@ -33,7 +33,7 @@ public abstract class Enemy extends Character {
         _points = points;
         _speed = speed;
 
-        MAX_STEPS = Game.TILES_SIZE  / _speed;
+        MAX_STEPS = Game.TILES_SIZE / _speed;
         rest = (MAX_STEPS - (int) MAX_STEPS) / MAX_STEPS;
         _steps = MAX_STEPS;
 
@@ -84,7 +84,7 @@ public abstract class Enemy extends Character {
             _steps = MAX_STEPS;
         }
 
-        _steps -= 1 ;
+        _steps -= 1;
         int x = 0;
         int y = 0;
         switch (_direction) {
@@ -105,7 +105,7 @@ public abstract class Enemy extends Character {
         }
 
         if (canMove(x + _x, y + _y)) {
-            move(x*_speed, y*_speed);
+            move(x, y);
             _moving = true;
         } else {
             _steps -= 3;
@@ -118,8 +118,8 @@ public abstract class Enemy extends Character {
     @Override
     public void move(double xa, double ya) {
         if (!_alive) return;
-        _y += ya;
-        _x += xa;
+        _y += ya * _speed;
+        _x += xa * _speed;
     }
 
     @Override

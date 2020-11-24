@@ -26,14 +26,14 @@ public class InfoPanel extends JPanel {
         pointsLabel.setForeground(Color.CYAN);
         pointsLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        livesLabel = new JLabel("Lives: " + game.getBoard().get_live());
-        livesLabel.setForeground(Color.ORANGE);
-        livesLabel.setHorizontalAlignment(JLabel.CENTER);
+//        livesLabel = new JLabel("Lives: " + game.getBoard().get_live());
+//        livesLabel.setForeground(Color.ORANGE);
+//        livesLabel.setHorizontalAlignment(JLabel.CENTER);
 
 
         add(timeLabel);
         add(pointsLabel);
-        add(livesLabel);
+//        add(livesLabel);
 
         setBackground(Color.black);
         setPreferredSize(new Dimension(0, 40));

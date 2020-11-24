@@ -126,7 +126,7 @@ public class Game extends Canvas {
         requestFocus();
         Sound.playBackGround();
         while (_running) {
-            System.out.println("? running ");
+//            System.out.println("? running ");
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -152,7 +152,7 @@ public class Game extends Canvas {
             if (System.currentTimeMillis() - timer > 1000) {
                 _frame.setTime(_board.subtractTime());
                 _frame.setPoints(_board.getPoints());
-                _frame.setLives(_board.get_live());
+//                _frame.setLives(_board.get_live());
                 timer += 1000;
                 _frame.setTitle(TITLE + " | " + updates + " rate, " + frames + " fps");
                 updates = 0;
@@ -227,10 +227,10 @@ public class Game extends Canvas {
     public void pause() {
         _paused = true;
     }
+
     public void stop(){
-        _running = false;
+        _running= false;
         renderScreen();
-//        _board.setShow(1);
     }
 
 }
