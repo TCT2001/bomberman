@@ -12,7 +12,7 @@ public class Minvo extends Enemy {
     private Random random = new Random();
     public Minvo(int x, int y, Board board) {
 
-        super(x, y, board, Sprite.minvo_dead, Game.getBomberSpeed(), 100);
+        super(x, y, board, Sprite.minvo_dead, Game.getBomberSpeed()*0.85, 100);
         _sprite = Sprite.minvo_left1;
 
         _ai = new AILow();
@@ -36,6 +36,6 @@ public class Minvo extends Enemy {
     @Override
     public void calculateMove() {
         super.calculateMove();
-        _speed *= (random.nextInt(199) / 285.0 + 0.7);//0.7 - 1.5
+        _speed *= (random.nextInt(199) / 221.0 + 0.3);//0.7 - 1.2
     }
 }

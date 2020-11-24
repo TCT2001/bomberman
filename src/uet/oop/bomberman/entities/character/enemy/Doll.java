@@ -12,7 +12,7 @@ public class Doll extends Enemy {
     private Random random = new Random();
 
     public Doll(int x, int y, Board board) {
-        super(x, y, board, Sprite.doll_dead, Game.getBomberSpeed(), 200);
+        super(x, y, board, Sprite.doll_dead, Game.getBomberSpeed()*0.8, 200);
         _sprite = Sprite.doll_left1;
         _ai = new AIMedium(_board.getBomber(), this);
         _direction = _ai.calculateDirection();
@@ -41,6 +41,6 @@ public class Doll extends Enemy {
     @Override
     public void calculateMove() {
         super.calculateMove();
-        _speed *= (random.nextInt(199) / 285.0 + 0.7);//0.7 - 1.5
+        _speed *= (random.nextInt(199) / 221.0 + 0.3);//0.7 - 1.2
     }
 }

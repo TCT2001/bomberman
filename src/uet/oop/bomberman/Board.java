@@ -16,6 +16,7 @@ import uet.oop.bomberman.sound.Sound;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -250,7 +251,11 @@ public class Board implements IRender {
     }
 
     public Entity getEntityAt(double x, double y) {
-        return _entities[(int) x + (int) y * _levelLoader.getWidth()];
+        try {
+            return _entities[(int) x + (int) y * _levelLoader.getWidth()];
+        } catch (Exception e){
+            return null;
+        }
     }
 
     public void addEntity(int pos, Entity e) {
@@ -303,10 +308,11 @@ public class Board implements IRender {
 
     protected void updateCharacters() {
         if (_game.isPaused()) return;
-        Iterator<Character> itr = _characters.iterator();
 
-        while (itr.hasNext() && !_game.isPaused())
-            itr.next().update();
+        for (int i = 0; i < _characters.size(); i++) {
+            Character m = _characters.get(i);
+            m.update();
+        }
     }
 
     protected void updateBombs() {

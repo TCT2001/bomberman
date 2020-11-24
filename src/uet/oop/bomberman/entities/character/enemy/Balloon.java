@@ -9,7 +9,7 @@ public class Balloon extends Enemy {
 	
 	
 	public Balloon(int x, int y, Board board) {
-		super(x, y, board, Sprite.balloom_dead, Game.getBomberSpeed()/1.2, 100);
+		super(x, y, board, Sprite.balloom_dead, Game.getBomberSpeed()*0.85, 100);
 		
 		_sprite = Sprite.balloom_left1;
 		

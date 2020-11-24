@@ -10,8 +10,11 @@ import java.util.Random;
 
 public class Kondoria extends Enemy {
     private Random random = new Random();
+    private boolean added = false;
+
+
     public Kondoria(int x, int y, Board board) {
-        super(x, y, board, Sprite.kondoria_dead, Game.getBomberSpeed(), 200);
+        super(x, y, board, Sprite.kondoria_dead, Game.getBomberSpeed()*0.7, 200);
         _sprite = Sprite.kondoria_left1;
         _ai = new AILow();
         _direction = _ai.calculateDirection();
@@ -20,14 +23,38 @@ public class Kondoria extends Enemy {
     @Override
     public void update() {
         super.update();
-        if (_board.getTime() %60 == 0) {
-
+        if (_board.getTime() % 60 == 0) {
+            if (added) {
+                return;
+            }
+            added = true;
+            int n = random.nextInt(4) + 1;
+            switch (n) {
+                case 1:
+                    System.out.println("case 1");
+                    _board.addCharacter(new Balloon((int) _x, (int) _y, _board));
+                    break;
+                case 2:
+                    System.out.println("case 2");
+                    _board.addCharacter(new Minvo((int) _x, (int) _y, _board));
+                    break;
+                case 3:
+                    System.out.println("case 3");
+                    _board.addCharacter(new Oneal((int) _x, (int) _y, _board));
+                    break;
+                case 4:
+                    System.out.println("case 4");
+                    _board.addCharacter(new Doll((int) _x, (int) _y, _board));
+                    break;
+            }
+        } else {
+            added = false;
         }
     }
 
     @Override
     protected void chooseSprite() {
-        switch(_direction) {
+        switch (_direction) {
             case 0:
             case 1:
                 _sprite = Sprite.movingSprite(Sprite.kondoria_right1,
