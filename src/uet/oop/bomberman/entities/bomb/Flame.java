@@ -125,9 +125,9 @@ public class Flame extends Entity {
 		if (e instanceof Character) {
 			((Character) e).kill();
 			if (e instanceof Enemy) {
-				Sound.playMosterDie();
+				Sound.playMonsterDie();
 			} else {
-				Sound.playBombExplose();
+				Sound.playBombExplosive();
 			}
 		}
 		return true;
