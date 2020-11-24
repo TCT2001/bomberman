@@ -1,5 +1,7 @@
 package uet.oop.bomberman.entities.tile.item;
 
+import uet.oop.bomberman.Board;
+import uet.oop.bomberman.Game;
 import uet.oop.bomberman.graphics.Sprite;
 
 public class LiveItem extends Item {
@@ -10,6 +12,7 @@ public class LiveItem extends Item {
 
     @Override
     public void setAttribute() {
-
+        this.hasPower = true;
+        Board.addLive(1); //Tăng 1 mạng
     }
 }

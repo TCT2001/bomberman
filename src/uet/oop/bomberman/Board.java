@@ -36,7 +36,7 @@ public class Board implements IRender {
 
     private int _time = Game.TIME;
     private int _points = Game.POINTS;
-    private int _live = Game.lives;
+    public static int _live = Game.lives;
 
     public Board(Game game) {
         _game = game;
@@ -107,7 +107,7 @@ public class Board implements IRender {
     }
 
     protected void detectEndGame() {
-        if (_time <= 0)
+        if (_time <= 0 || _live == 0)
             endGame();
     }
 
@@ -247,6 +247,10 @@ public class Board implements IRender {
 
     public int get_live() {
         return _live;
+    }
+
+    public static void addLive(int i) {
+        _live += i;
     }
 
     public Entity getEntityAt(double x, double y) {
