@@ -124,8 +124,15 @@ public class Bomber extends Character {
 
     @Override
     public void kill() {
-        if (!_alive) return;
-        _alive = false;
+        if (Board._live > 0) {
+            // Khi vẫn còn mạng, thì giảm mạng
+            Board.addLive(-1);
+            return;
+        } else {
+            //Khi mạng = 0 thì endGame
+            _alive = false;
+        }
+        Sound.playBomberDie();
     }
 
     @Override
