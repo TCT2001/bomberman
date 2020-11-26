@@ -27,7 +27,7 @@ public class Game extends Canvas {
     private static final int BOMBRATE = 1;
     private static final int BOMBRADIUS = 1;
     private static final double BOMBERSPEED = 1.0;
-    public static final int LIVES = 3; // mang
+    public static final int LIVES = 1; // mang
 
     public static final int TIME = 200;
     public static final int POINTS = 0;
@@ -66,7 +66,6 @@ public class Game extends Canvas {
 
         addKeyListener(_input);
     }
-
 
     private void renderGame() {
         BufferStrategy bs = getBufferStrategy();
@@ -114,7 +113,19 @@ public class Game extends Canvas {
         _board.update();
     }
 
+    private void defaultValue() {
+        bombRate = BOMBRATE;
+        bombRadius = BOMBRADIUS;
+        bomberSpeed = BOMBERSPEED;
+        bomberPassWall = false;
+        bomberPassBomb = false;
+        bomberPassFlame = false;
+        lives = LIVES;
+    }
+
     public void start() {
+
+        defaultValue();
         _running = true;
 
         long lastTime = System.nanoTime();
@@ -230,7 +241,7 @@ public class Game extends Canvas {
     public void stop() {
         _running = false;
         renderScreen();
-//        _board.setShow(1);
+        _board.setShow(1);
     }
 
     public void run() {

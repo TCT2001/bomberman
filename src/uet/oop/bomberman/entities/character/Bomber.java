@@ -23,6 +23,7 @@ import java.util.List;
 public class Bomber extends Character {
 
     private List<Bomb> _bombs;
+    private boolean immortal = false;
 
     public static List<Item> permanentPowerUps = new ArrayList<>();
     public static List<Item> temporaryPowerUps = new ArrayList<>();
@@ -122,6 +123,7 @@ public class Bomber extends Character {
 
     @Override
     public void kill() {
+        if (immortal) return;
         if (Board._live > 0) {
             // Khi vẫn còn mạng, thì giảm mạng
             Board.addLive(-1);
@@ -301,4 +303,7 @@ public class Bomber extends Character {
         }
     }
 
+    public void setImmortal(boolean immortal) {
+        this.immortal = immortal;
+    }
 }

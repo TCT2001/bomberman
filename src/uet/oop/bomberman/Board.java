@@ -89,6 +89,7 @@ public class Board implements IRender {
     }
 
     public void loadLevel(int level) {
+        System.out.println("load lvr");
         _time = Game.TIME;
         _screenToShow = 2;
         _game.resetScreenDelay();
@@ -105,6 +106,8 @@ public class Board implements IRender {
         } catch (LoadLevelException e) {
             endGame();
         }
+
+
     }
 
     protected void detectEndGame() {
@@ -408,10 +411,19 @@ public class Board implements IRender {
     }
 
     public void immortalGame(){
-
+        getBomber().setImmortal(true);
     }
 
     public void addBombSize(){
+        _game.addBombRate(999);
+    }
+
+    public void newGame(){
+        _live = 1;
+        _points = 0;
+        _time = 200;
+        loadLevel(1);
+        _game.start();
 
     }
 }

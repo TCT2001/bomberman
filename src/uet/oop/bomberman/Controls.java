@@ -35,7 +35,8 @@ public class Controls {
 
     //new game
     public void newGame() {
-        board.loadLevel(1);
+       board.newGame();
+
     }
 
     //can't die
