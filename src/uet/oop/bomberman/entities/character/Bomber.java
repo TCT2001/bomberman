@@ -195,8 +195,8 @@ public class Bomber extends Character {
         if (moveY > 0) _direction = 2;
         if (moveY < 0) _direction = 0;
 
-        double ya = _y + moveY;
-        double xa = _x + moveX;
+        double ya = _y + moveY * Game.getBomberSpeed();
+        double xa = _x + moveX * Game.getBomberSpeed();
         if (canMove(_x, ya)) {
             _y = ya;
         }

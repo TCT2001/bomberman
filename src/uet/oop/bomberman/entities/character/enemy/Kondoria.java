@@ -14,7 +14,7 @@ public class Kondoria extends Enemy {
 
 
     public Kondoria(int x, int y, Board board) {
-        super(x, y, board, Sprite.kondoria_dead, Game.getBomberSpeed()*0.7, 200);
+        super(x, y, board, Sprite.kondoria_dead, 0.7, 200);
         _sprite = Sprite.kondoria_left1;
         _ai = new AILow();
         _direction = _ai.calculateDirection();

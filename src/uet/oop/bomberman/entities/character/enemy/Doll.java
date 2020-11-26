@@ -12,7 +12,7 @@ public class Doll extends Enemy {
     private Random random = new Random();
 
     public Doll(int x, int y, Board board) {
-        super(x, y, board, Sprite.doll_dead, Game.getBomberSpeed()*0.8, 200);
+        super(x, y, board, Sprite.doll_dead, 0.8, 200);
         _sprite = Sprite.doll_left1;
         _ai = new AIMedium(_board.getBomber(), this);
         _direction = _ai.calculateDirection();
