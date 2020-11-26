@@ -104,12 +104,18 @@ public class Screen {
         Font font = new Font("Arial", Font.PLAIN, 20 * Game.SCALE);
         g.setFont(font);
         g.setColor(Color.white);
-        drawCenteredString("GAME OVER", getRealWidth(), getRealHeight(), g);
+        drawCenteredString("GAME OVER", getRealWidth(),
+                getRealHeight()-(Game.TILES_SIZE *3) * Game.SCALE, g);
 
         font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);
         g.setFont(font);
         g.setColor(Color.yellow);
-        drawCenteredString("POINTS: " + points, getRealWidth(), getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
+        drawCenteredString("POINTS: " + points,
+                getRealWidth(),
+                getRealHeight(), g);
+        drawCenteredString("Press Ctrl + N to new Game",
+                getRealWidth(),
+                getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
     }
 
     public void drawChangeLevel(Graphics g, int level) {
@@ -128,6 +134,9 @@ public class Screen {
         g.setFont(font);
         g.setColor(Color.white);
         drawCenteredString("PAUSED", getRealWidth(), getRealHeight(), g);
+        drawCenteredString("Press Ctrl + R to resume",
+                getRealWidth(),
+                getRealHeight()+(Game.TILES_SIZE * 2) * Game.SCALE, g);
 
     }
 

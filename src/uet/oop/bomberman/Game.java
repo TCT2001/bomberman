@@ -59,11 +59,11 @@ public class Game extends Canvas {
     public Game(Frame frame) {
         _frame = frame;
         _frame.setTitle(TITLE);
-
-        screen = Screen.getInstance();
-        _input = Keyboard.getInstance();
-
         _board = new Board(this);
+        screen = Screen.getInstance();
+        _input = new Keyboard(new Controls(_board));
+
+
         addKeyListener(_input);
     }
 
@@ -231,6 +231,11 @@ public class Game extends Canvas {
         _running = false;
         renderScreen();
 //        _board.setShow(1);
+    }
+
+    public void run() {
+        _running = true;
+        _paused = false;
     }
 
 }

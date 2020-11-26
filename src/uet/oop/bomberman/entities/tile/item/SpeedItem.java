@@ -13,6 +13,6 @@ public class SpeedItem extends Item {
 	@Override
 	public void setAttribute() {
 		this.hasPower = true;
-		Game.addBomberSpeed(0.1); //Increase 0.1
+		Game.addBomberSpeed(0.2); //Increase 0.2
 	}
 }

@@ -257,7 +257,7 @@ public class Board implements IRender {
     public Entity getEntityAt(double x, double y) {
         try {
             return _entities[(int) x + (int) y * _levelLoader.getWidth()];
-        } catch (Exception e){
+        } catch (Exception e) {
             return null;
         }
     }
@@ -386,4 +386,32 @@ public class Board implements IRender {
         return _levelLoader.getHeight();
     }
 
+    public void gamePause() {
+        _game.resetScreenDelay();
+        if (_screenToShow <= 0)
+            _screenToShow = 3;
+        _game.pause();
+    }
+
+    public void gameResume() {
+        _game.resetScreenDelay();
+        _screenToShow = -1;
+        _game.run();
+    }
+
+    public void speedUpGame(){
+        _game.addBomberSpeed(0.2);
+    }
+
+    public void quitGame(){
+        System.exit(0);
+    }
+
+    public void immortalGame(){
+
+    }
+
+    public void addBombSize(){
+
+    }
 }

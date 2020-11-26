@@ -23,7 +23,6 @@ import java.util.List;
 public class Bomber extends Character {
 
     private List<Bomb> _bombs;
-    protected Keyboard _input;
 
     public static List<Item> permanentPowerUps = new ArrayList<>();
     public static List<Item> temporaryPowerUps = new ArrayList<>();
@@ -38,7 +37,6 @@ public class Bomber extends Character {
     public Bomber(int x, int y, Board board) {
         super(x, y, board);
         _bombs = _board.getBombs();
-        _input = Keyboard.getInstance();
         _sprite = Sprite.player_right;
     }
 
@@ -87,7 +85,7 @@ public class Bomber extends Character {
      */
     private void detectPlaceBomb() {
         // TODO: kiểm tra xem phím điều khiển đặt bom có được gõ và giá trị _timeBetweenPutBombs, Game.getBombRate() có thỏa mãn hay không
-        if (_input.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
+        if (Keyboard.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
             int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
             int yt = Coordinates.pixelToTile((_y + _sprite.getSize() / 2) - _sprite.getSize()); //subtract half player height and minus 1 y position
 
@@ -149,10 +147,10 @@ public class Bomber extends Character {
         // TODO: nhớ cập nhật lại giá trị cờ _moving khi thay đổi trạng thái di chuyển
         int moveX = 0;
         int moveY = 0;
-        if (_input.up) moveY--;
-        if (_input.down) moveY++;
-        if (_input.right) moveX++;
-        if (_input.left) moveX--;
+        if (Keyboard.up) moveY--;
+        if (Keyboard.down) moveY++;
+        if (Keyboard.right) moveX++;
+        if (Keyboard.left) moveX--;
         if (moveX != 0 || moveY != 0) {
             _moving = true;
             move(moveX, moveY);

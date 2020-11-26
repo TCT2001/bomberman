@@ -38,5 +38,5 @@ s - Speed Item
 w - Wall Pass Item
 k - Bomb Pass Item
 t - Flame Pass Item
-
+l - lives Item
 Kí tự khác các kí tự trên - Grass
