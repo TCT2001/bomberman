@@ -30,12 +30,14 @@ public class Frame extends JFrame {
         add(_container_pane);
 
         setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-
         _game.start();
+    }
+    public void distroy(){
+        removeAll();
     }
 
 

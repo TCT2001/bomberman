@@ -71,13 +71,7 @@ public class Keyboard implements KeyListener {
 
         setKey(e, true);
 
-        if (e.getKeyCode() == KeyEvent.VK_N
-                && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
-            //new game
-            System.out.println("new game");
-            controls.newGame();
-
-        } else if (e.getKeyCode() == KeyEvent.VK_P
+         if (e.getKeyCode() == KeyEvent.VK_P
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             //pause
             controls.pause();

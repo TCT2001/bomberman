@@ -28,15 +28,10 @@ public class Controls {
     public void upSpeedGame() {
         board.speedUpGame();
     }
+
     //quit
     public void quitGame() {
         board.quitGame();
-    }
-
-    //new game
-    public void newGame() {
-       board.newGame();
-
     }
 
     //can't die
@@ -44,7 +39,7 @@ public class Controls {
         board.immortalGame();
     }
 
-    public void addBoomSize(){
+    public void addBoomSize() {
         board.addBombSize();
     }
 

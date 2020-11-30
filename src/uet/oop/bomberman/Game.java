@@ -243,6 +243,22 @@ public class Game extends Canvas {
         _running = false;
         renderScreen();
         _board.setShow(1);
+
+        Runnable myRunnable =
+                new Runnable() {
+                    public void run() {
+                        try {
+                            Thread.sleep(3000);
+                            _frame.removeAll();
+                            _frame.dispose();
+                        } catch (Exception e) {
+
+                        }
+                    }
+                };
+        Thread thread = new Thread(myRunnable);
+        thread.start();
+
     }
 
     public void run() {

@@ -77,6 +77,5 @@ public class HomeController {
         }
         Scene scene = new Scene(root, BombermanGame.width, BombermanGame.height);
         stage.setScene(scene);
-
     }
 }

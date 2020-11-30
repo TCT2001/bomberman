@@ -42,7 +42,9 @@ public class Board implements IRender {
     public Board(Game game) {
         _game = game;
         _screen = Screen.getInstance();
-
+        _time = Game.TIME;
+        _points = Game.POINTS;
+        _live = Game.lives;
         loadLevel(1); //start in level 1
     }
 

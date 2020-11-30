@@ -113,9 +113,6 @@ public class Screen {
         drawCenteredString("POINTS: " + points,
                 getRealWidth(),
                 getRealHeight(), g);
-        drawCenteredString("Press Ctrl + N to new Game",
-                getRealWidth(),
-                getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
     }
 
     public void drawChangeLevel(Graphics g, int level) {
