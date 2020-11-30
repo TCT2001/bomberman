@@ -53,8 +53,10 @@ public class Game extends Canvas {
     private Screen screen;
     private Frame _frame;
 
-    private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-    private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+    private BufferedImage image =
+            new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    private int[] pixels =
+            ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
     public Game(Frame frame) {
         _frame = frame;
@@ -109,7 +111,6 @@ public class Game extends Canvas {
     }
 
     private void update() {
-        _input.update();
         _board.update();
     }
 

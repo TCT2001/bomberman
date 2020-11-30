@@ -1,30 +1,65 @@
 package uet.oop.bomberman.input;
 
-import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Controls;
-import uet.oop.bomberman.Game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * Tiếp nhận và xử lý các sự kiện nhập từ bàn phím
  */
 public class Keyboard implements KeyListener {
     private boolean[] keys = new boolean[120]; //120 is enough to this game
-    public static boolean up, down, left, right, space;
+    public static boolean up, down, left, right, boom;
+    public static String sUp, sDown, sLeft, sRight, sBoom;
     private Controls controls;
 
     public Keyboard(Controls controls) {
         this.controls = controls;
+        updateKey();
     }
 
-    public void update() {
-        up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
-        down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
-        left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
-        right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
-        space = keys[KeyEvent.VK_SPACE] || keys[KeyEvent.VK_X];
+    public static void updateKey() {
+
+        String s[] = new String[5];
+        String data;
+        try {
+            File myObj = new File("res/game/setting");
+            Scanner myReader = new Scanner(myObj);
+            for (int i = 0; i < 5; i++) {
+                s[i] = myReader.nextLine();
+            }
+            myReader.close();
+            sUp = s[0];
+            sLeft = s[1];
+            sDown = s[2];
+            sRight = s[3];
+            sBoom = s[4];
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    private void setKey(KeyEvent e, Boolean bool) {
+        if (getkeyText(e).equals(sUp)) {
+            up = bool;
+        }
+        if (getkeyText(e).equals(sDown)) {
+            down = bool;
+        }
+        if (getkeyText(e).equals(sLeft)) {
+            left = bool;
+        }
+        if (getkeyText(e).equals(sRight)) {
+            right = bool;
+        }
+        if (getkeyText(e).equals(sBoom)) {
+            boom = bool;
+        }
     }
 
     @Override
@@ -33,8 +68,9 @@ public class Keyboard implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        keys[e.getKeyCode()] = true;
-        //add shortcut direction game
+
+        setKey(e, true);
+
         if (e.getKeyCode() == KeyEvent.VK_N
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             //new game
@@ -80,10 +116,14 @@ public class Keyboard implements KeyListener {
         }
     }
 
+    private String getkeyText(KeyEvent e) {
+        return e.paramString().split(",")[2].split("=")[1].toUpperCase();
+    }
+
+
     @Override
     public void keyReleased(KeyEvent e) {
-        keys[e.getKeyCode()] = false;
-
+        setKey(e, false);
     }
 
 }

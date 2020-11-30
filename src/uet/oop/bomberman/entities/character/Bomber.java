@@ -86,7 +86,7 @@ public class Bomber extends Character {
      */
     private void detectPlaceBomb() {
         // TODO: kiểm tra xem phím điều khiển đặt bom có được gõ và giá trị _timeBetweenPutBombs, Game.getBombRate() có thỏa mãn hay không
-        if (Keyboard.space && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
+        if (Keyboard.boom && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
             int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
             int yt = Coordinates.pixelToTile((_y + _sprite.getSize() / 2) - _sprite.getSize()); //subtract half player height and minus 1 y position
 
