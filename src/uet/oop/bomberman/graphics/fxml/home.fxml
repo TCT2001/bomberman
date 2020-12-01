@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="uet.oop.bomberman.graphics.fxml.HomeController">
+<AnchorPane fx:id="pane" style="-fx-background-image: url('sprites/background.png')" prefHeight="520.0" prefWidth="640.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.oop.bomberman.graphics.fxml.HomeController">
   <children>
-    <Button layoutX="253.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#newGame" text="New Game" />
-    <Button layoutX="253.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#hightCore" text="HightScore" />
-    <Button layoutX="253.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#quit" prefWidth="94.0" text="Quit" />
-    <Button layoutX="253.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#setting" prefWidth="94.0" text="Setting" />
+    <Button fx:id="shiny1" layoutX="245.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#newGame" prefHeight="50.0" prefWidth="150.0" stylesheets="@stylesheet.css" text="New Game" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="109.0">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+    <Button fx:id="shiny2" layoutX="245.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#hightCore" prefHeight="50.0" prefWidth="150.0" stylesheets="@stylesheet.css" text="HightScore" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="193.0">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+    <Button fx:id="shiny3" layoutX="245.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#quit" prefHeight="50.0" prefWidth="150.0" stylesheets="@stylesheet.css" text="Quit" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="357.0">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+    <Button fx:id="shiny4" layoutX="245.0" layoutY="274.0" mnemonicParsing="false" onMouseClicked="#setting" prefHeight="50.0" prefWidth="150.0" stylesheets="@stylesheet.css" text="Setting" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="274.0">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
   </children>
 </AnchorPane>
