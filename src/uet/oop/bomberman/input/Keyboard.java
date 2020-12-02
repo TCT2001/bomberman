@@ -1,6 +1,7 @@
 package uet.oop.bomberman.input;
 
 import uet.oop.bomberman.Controls;
+import uet.oop.bomberman.file.FileUltis;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -23,25 +24,12 @@ public class Keyboard implements KeyListener {
     }
 
     public static void updateKey() {
-
-        String s[] = new String[5];
-        String data;
-        try {
-            File myObj = new File("res/game/setting");
-            Scanner myReader = new Scanner(myObj);
-            for (int i = 0; i < 5; i++) {
-                s[i] = myReader.nextLine();
-            }
-            myReader.close();
-            sUp = s[0];
-            sLeft = s[1];
-            sDown = s[2];
-            sRight = s[3];
-            sBoom = s[4];
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        String s[] = FileUltis.getKeyNav();
+        sUp = s[0];
+        sLeft = s[1];
+        sDown = s[2];
+        sRight = s[3];
+        sBoom = s[4];
     }
 
     private void setKey(KeyEvent e, Boolean bool) {
@@ -62,16 +50,8 @@ public class Keyboard implements KeyListener {
         }
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-        setKey(e, true);
-
-         if (e.getKeyCode() == KeyEvent.VK_P
+    private void addNav(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_P
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             //pause
             controls.pause();
@@ -108,6 +88,16 @@ public class Keyboard implements KeyListener {
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             //time ?
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        setKey(e, true);
+        addNav(e);
     }
 
     private String getkeyText(KeyEvent e) {

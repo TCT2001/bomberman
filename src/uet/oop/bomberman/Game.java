@@ -1,5 +1,6 @@
 package uet.oop.bomberman;
 
+import uet.oop.bomberman.file.FileUltis;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.gui.Frame;
 import uet.oop.bomberman.input.Keyboard;
@@ -243,7 +244,11 @@ public class Game extends Canvas {
         _running = false;
         renderScreen();
         _board.setShow(1);
-
+        int point_player = _board.getPoints();
+        int point_max = Integer.parseInt(FileUltis.getHighScore());
+        if (point_player > point_max) {
+            FileUltis.setHighScore(point_player);
+        }
         Runnable myRunnable =
                 new Runnable() {
                     public void run() {

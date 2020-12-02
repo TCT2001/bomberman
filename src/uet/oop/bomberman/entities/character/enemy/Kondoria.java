@@ -14,7 +14,7 @@ public class Kondoria extends Enemy {
 
 
     public Kondoria(int x, int y, Board board) {
-        super(x, y, board, Sprite.kondoria_dead, 0.7, 200);
+        super(x, y, board, Sprite.kondoria_dead, 0.6, 200);
         _sprite = Sprite.kondoria_left1;
         _ai = new AILow();
         _direction = _ai.calculateDirection();
@@ -31,19 +31,15 @@ public class Kondoria extends Enemy {
             int n = random.nextInt(4) + 1;
             switch (n) {
                 case 1:
-                    System.out.println("case 1");
                     _board.addCharacter(new Balloon((int) _x, (int) _y, _board));
                     break;
                 case 2:
-                    System.out.println("case 2");
                     _board.addCharacter(new Minvo((int) _x, (int) _y, _board));
                     break;
                 case 3:
-                    System.out.println("case 3");
                     _board.addCharacter(new Oneal((int) _x, (int) _y, _board));
                     break;
                 case 4:
-                    System.out.println("case 4");
                     _board.addCharacter(new Doll((int) _x, (int) _y, _board));
                     break;
             }
