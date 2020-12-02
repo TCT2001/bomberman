@@ -6,7 +6,6 @@ import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.bomb.FlameSegment;
 import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.Character;
-import uet.oop.bomberman.exceptions.LoadLevelException;
 import uet.oop.bomberman.graphics.IRender;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.input.Keyboard;
@@ -100,16 +99,10 @@ public class Board implements IRender {
         _bombs.clear();
         _messages.clear();
 
-        try {
-            _levelLoader = new FileLevelLoader(this, level);
-            _entities = new Entity[_levelLoader.getHeight() * _levelLoader.getWidth()];
 
-            _levelLoader.createEntities();
-        } catch (LoadLevelException e) {
-            endGame();
-        }
-
-
+        _levelLoader = new FileLevelLoader(this, level);
+        _entities = new Entity[_levelLoader.getHeight() * _levelLoader.getWidth()];
+        _levelLoader.createEntities();
     }
 
     protected void detectEndGame() {

@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="uet.oop.bomberman.graphics.fxml.SettingController">
+<AnchorPane prefHeight="520.0" prefWidth="640.0" style="-fx-background-image: url('sprites/background.png')" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.oop.bomberman.graphics.fxml.SettingController">
   <children>
-    <Button fx:id="btnSave" layoutX="396.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#save" text="Save" />
-    <Button fx:id="btnUp" layoutX="390.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#up" text="Button" />
-    <Button fx:id="btnLeft" layoutX="390.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#left" text="Button" />
-    <Button fx:id="btnDown" layoutX="390.0" layoutY="176.0" mnemonicParsing="false" onMouseClicked="#down" text="Button" />
-    <Button fx:id="btnRight" layoutX="390.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#right" text="Button" />
-    <Button fx:id="btnBoom" layoutX="390.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#boom" text="Button" />
-    <Text layoutX="218.0" layoutY="85.0" text="UP" />
-    <Text layoutX="215.0" layoutY="137.0" text="LEFT" />
-    <Text layoutX="215.0" layoutY="183.0" text="DOWN" />
-    <Text layoutX="215.0" layoutY="232.0" text="RIGHT" />
-    <Text layoutX="215.0" layoutY="283.0" text="BOOM" />
+    <Button fx:id="btnSave" layoutX="264.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#save" text="Save" />
+    <Button fx:id="btnUp" layoutX="353.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#up" text="Button" />
+    <Button fx:id="btnLeft" layoutX="353.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#left" text="Button" />
+    <Button fx:id="btnDown" layoutX="353.0" layoutY="176.0" mnemonicParsing="false" onMouseClicked="#down" text="Button" />
+    <Button fx:id="btnRight" layoutX="353.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#right" text="Button" />
+    <Button fx:id="btnBoom" layoutX="353.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#boom" text="Button" />
+    <Text fx:id="textUp" layoutX="215.0" layoutY="96.0" text="UP">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+    <Text fx:id="textLeft" layoutX="209.0" layoutY="147.0" text="LEFT">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+    <Text fx:id="textDown" layoutX="199.0" layoutY="201.0" text="DOWN">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+    <Text fx:id="textRight" layoutX="201.0" layoutY="258.0" text="RIGHT">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+    <Text fx:id="textBoom" layoutX="201.0" layoutY="317.0" text="BOOM">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Line endX="100.0" layoutX="310.0" layoutY="113.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="310.0" layoutY="164.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="310.0" layoutY="219.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="313.0" layoutY="276.0" startX="-100.0" />
   </children>
 </AnchorPane>

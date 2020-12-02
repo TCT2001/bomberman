@@ -13,7 +13,6 @@ import uet.oop.bomberman.entities.tile.destroyable.Brick;
 import uet.oop.bomberman.entities.tile.item.*;
 import uet.oop.bomberman.entities.tile.item.durationItem.FlamePassItem;
 import uet.oop.bomberman.entities.tile.item.durationItem.WallPassItem;
-import uet.oop.bomberman.exceptions.LoadLevelException;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 
@@ -28,7 +27,7 @@ public class FileLevelLoader extends LevelLoader {
      */
     private static char[][] _map;
 
-    public FileLevelLoader(Board board, int level) throws LoadLevelException {
+    public FileLevelLoader(Board board, int level) {
         super(board, level);
     }
 

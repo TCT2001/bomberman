@@ -1,7 +1,6 @@
 package uet.oop.bomberman.level;
 
 import uet.oop.bomberman.Board;
-import uet.oop.bomberman.exceptions.LoadLevelException;
 
 /**
  * Load và lưu trữ thông tin bản đồ các màn chơi
@@ -12,12 +11,12 @@ public abstract class LevelLoader {
 	protected int _level;
 	protected Board _board;
 
-	public LevelLoader(Board board, int level) throws LoadLevelException {
+	public LevelLoader(Board board, int level) {
 		_board = board;
 		loadLevel(level);
 	}
 
-	public abstract void loadLevel(int level) throws LoadLevelException;
+	public abstract void loadLevel(int level);
 
 	public abstract void createEntities();
 
