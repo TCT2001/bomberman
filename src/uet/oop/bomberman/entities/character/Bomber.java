@@ -165,21 +165,21 @@ public class Bomber extends Character {
     public boolean canMove(double x, double y) {
         // TODO: kiểm tra có đối tượng tại vị trí chuẩn bị di chuyển đến và có thể di chuyển tới đó hay không
 
-//        //check top left
+//        check top left
         Entity e = _board.getEntity((x - 0.1) / 16, (y - 8) / 16, this);
         if (!e.collide(this))
             return false;
-////        check top right
+//        check top right
         e = _board.getEntity((x + 8) / 16, (y - 8) / 16, this);
         if (!e.collide(this))
             return false;
-//
-        //check bot left
+
+//        check bot left
         e = _board.getEntity((x - 0.1) / 16, (y - 0.1) / 16, this);
         if (!e.collide(this))
             return false;
-//
-        //check bot right
+
+//        check bot right
         e = _board.getEntity((x + 8) / 16, (y - 0.1) / 16, this);
         if (!e.collide(this))
             return false;
@@ -303,7 +303,7 @@ public class Bomber extends Character {
         }
     }
 
-    public void setImmortal(boolean immortal) {
-        this.immortal = immortal;
+    public void immortal() {
+        immortal = !immortal;
     }
 }

@@ -36,10 +36,6 @@ public class Frame extends JFrame {
         setVisible(true);
         _game.start();
     }
-    public void distroy(){
-        removeAll();
-    }
-
 
     public void setTime(int time) {
         _info_pane.setTime(time);

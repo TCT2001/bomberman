@@ -87,6 +87,7 @@ public class Keyboard implements KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_T
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             //time ?
+            controls.addBoomSize();
         }
     }
 

@@ -8,14 +8,12 @@ import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.Character;
 import uet.oop.bomberman.graphics.IRender;
 import uet.oop.bomberman.graphics.Screen;
-import uet.oop.bomberman.input.Keyboard;
 import uet.oop.bomberman.level.FileLevelLoader;
 import uet.oop.bomberman.level.LevelLoader;
 import uet.oop.bomberman.sound.Sound;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -90,7 +88,6 @@ public class Board implements IRender {
     }
 
     public void loadLevel(int level) {
-        System.out.println("load lvr");
         _time = Game.TIME;
         _screenToShow = 2;
         _game.resetScreenDelay();
@@ -406,19 +403,11 @@ public class Board implements IRender {
     }
 
     public void immortalGame(){
-        getBomber().setImmortal(true);
+        getBomber().immortal();
     }
 
     public void addBombSize(){
         _game.addBombRate(999);
     }
 
-    public void newGame(){
-        _live = 1;
-        _points = 0;
-        _time = 200;
-        loadLevel(1);
-        _game.start();
-
-    }
 }

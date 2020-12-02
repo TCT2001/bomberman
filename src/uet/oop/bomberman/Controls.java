@@ -21,7 +21,6 @@ public class Controls {
     //nextlv
     public void levelUpGame() {
         board.nextLevel();
-
     }
 
     //upspeed
@@ -42,6 +41,5 @@ public class Controls {
     public void addBoomSize() {
         board.addBombSize();
     }
-
 
 }
