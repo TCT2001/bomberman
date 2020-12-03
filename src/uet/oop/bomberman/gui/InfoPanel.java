@@ -15,18 +15,18 @@ public class InfoPanel extends JPanel {
     private JLabel pointsLabel;
     private JLabel livesLabel;
 
-    public InfoPanel(Game game) {
+    public InfoPanel() {
         setLayout(new GridLayout());
 
-        timeLabel = new JLabel("Times: " + game.getBoard().getTime());
+        timeLabel = new JLabel("Times: " + Game.getBoard().getTime());
         timeLabel.setForeground(Color.LIGHT_GRAY);
         timeLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        pointsLabel = new JLabel("Points: " + game.getBoard().getPoints());
+        pointsLabel = new JLabel("Points: " + Game.getBoard().getPoints());
         pointsLabel.setForeground(Color.CYAN);
         pointsLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        livesLabel = new JLabel("Lives: " + game.getBoard().get_live());
+        livesLabel = new JLabel("Lives: " + Game.getBoard().get_live());
         livesLabel.setForeground(Color.ORANGE);
         livesLabel.setHorizontalAlignment(JLabel.CENTER);
 

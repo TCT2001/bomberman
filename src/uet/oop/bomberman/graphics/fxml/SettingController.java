@@ -5,12 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -21,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class SettingController implements Initializable {
     private static final String PATH_HOME = "src/uet/oop/bomberman/graphics/fxml/home.fxml";
-    private String s[] = new String[5];
+    private String []s = new String[5];
     private int i = 0;
 
     @FXML
@@ -105,15 +101,7 @@ public class SettingController implements Initializable {
         Text text = new Text("Press any key\n\t");
 
         //CSS text
-        DropShadow ds = new DropShadow();
-        ds.setOffsetY(3.0f);
-        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
-        text.setEffect(ds);
-        text.setCache(true);
-        text.setX(10.0f);
-        text.setY(270.0f);
-        text.setFill(Color.RED);
-        text.setFont(Font.font(null, FontWeight.BOLD, 32));
+        FxHelper.textCss(text,32);
 
         dialogVbox.getChildren().add(text);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);

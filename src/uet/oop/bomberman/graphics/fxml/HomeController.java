@@ -19,32 +19,24 @@ import uet.oop.bomberman.gui.Frame;
 public class HomeController {
     private static final String PATH_SETTING = "src/uet/oop/bomberman/graphics/fxml/setting.fxml";
 
-    public void newGame(MouseEvent mouseEvent) {
+    public void newGame() {
         new Frame();
     }
 
-    public void hightCore(MouseEvent mouseEvent) {
+    public void highScore() {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         VBox dialogVbox = new VBox(20);
         dialogVbox.setAlignment(Pos.CENTER);
 
-        //get hight score
+        //get high score
         String score = FileUltis.getHighScore();
 
 
         //set max score
         Text text = new Text(score);
         //CSS
-        DropShadow ds = new DropShadow();
-        ds.setOffsetY(3.0f);
-        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
-        text.setEffect(ds);
-        text.setCache(true);
-        text.setX(10.0f);
-        text.setY(270.0f);
-        text.setFill(Color.RED);
-        text.setFont(Font.font(null, FontWeight.BOLD, 40));
+        FxHelper.textCss(text,40);
 
         dialogVbox.getChildren().add(text);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);

@@ -81,9 +81,7 @@ public class Game extends Canvas {
 
         _board.render(screen);
 
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = screen._pixels[i];
-        }
+        System.arraycopy(screen._pixels, 0, pixels, 0, pixels.length);
 
         Graphics g = bs.getDrawGraphics();
 
@@ -250,15 +248,13 @@ public class Game extends Canvas {
             FileUltis.setHighScore(point_player);
         }
         Runnable myRunnable =
-                new Runnable() {
-                    public void run() {
-                        try {
-                            Thread.sleep(3000);
-                            _frame.removeAll();
-                            _frame.dispose();
-                        } catch (Exception e) {
+                () -> {
+                    try {
+                        Thread.sleep(3000);
+                        _frame.removeAll();
+                        _frame.dispose();
+                    } catch (Exception ignored) {
 
-                        }
                     }
                 };
         Thread thread = new Thread(myRunnable);

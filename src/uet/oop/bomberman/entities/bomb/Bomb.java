@@ -62,14 +62,14 @@ public class Bomb extends AnimatedEntitiy {
     }
 
     public void renderFlames(Screen screen) {
-        for (int i = 0; i < _flames.length; i++) {
-            _flames[i].render(screen);
+        for (Flame flame : _flames) {
+            flame.render(screen);
         }
     }
 
     public void updateFlames() {
-        for (int i = 0; i < _flames.length; i++) {
-            _flames[i].update();
+        for (Flame flame : _flames) {
+            flame.update();
         }
     }
 
@@ -95,9 +95,9 @@ public class Bomb extends AnimatedEntitiy {
     public FlameSegment flameAt(int x, int y) {
         if (!_exploded) return null;
 
-        for (int i = 0; i < _flames.length; i++) {
-            if (_flames[i] == null) return null;
-            FlameSegment e = _flames[i].flameSegmentAt(x, y);
+        for (Flame flame : _flames) {
+            if (flame == null) return null;
+            FlameSegment e = flame.flameSegmentAt(x, y);
             if (e != null) return e;
         }
 

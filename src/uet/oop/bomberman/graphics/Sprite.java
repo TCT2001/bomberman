@@ -1,5 +1,7 @@
 package uet.oop.bomberman.graphics;
 
+import java.util.Arrays;
+
 /**
  * Lưu trữ thông tin các pixel của 1 sprite (hình ảnh game)
  */
@@ -195,16 +197,13 @@ public class Sprite {
 	}
 	
 	private void setColor(int color) {
-		for (int i = 0; i < _pixels.length; i++) {
-			_pixels[i] = color;
-		}
+		Arrays.fill(_pixels, color);
 	}
 
 	private void load() {
 		for (int y = 0; y < SIZE; y++) {
-			for (int x = 0; x < SIZE; x++) {
-				_pixels[x + y * SIZE] = _sheet._pixels[(x + _x) + (y + _y) * _sheet.SIZE];
-			}
+			int x = 0;
+			System.arraycopy(_sheet._pixels, (x + _x) + (y + _y) * _sheet.SIZE, _pixels, y * SIZE, SIZE);
 		}
 	}
 	

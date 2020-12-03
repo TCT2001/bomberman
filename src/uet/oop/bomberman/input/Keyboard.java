@@ -5,9 +5,6 @@ import uet.oop.bomberman.file.FileUltis;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 /**
  * Tiếp nhận và xử lý các sự kiện nhập từ bàn phím
@@ -24,7 +21,7 @@ public class Keyboard implements KeyListener {
     }
 
     public static void updateKey() {
-        String s[] = FileUltis.getKeyNav();
+        String[] s = FileUltis.getKeyNav();
         sUp = s[0];
         sLeft = s[1];
         sDown = s[2];
@@ -67,8 +64,7 @@ public class Keyboard implements KeyListener {
             System.out.println("quit");
         } else if (e.getKeyCode() == KeyEvent.VK_H
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
-
-            //help
+            //TODO: help
         } else if (e.getKeyCode() == KeyEvent.VK_U
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             controls.levelUpGame();

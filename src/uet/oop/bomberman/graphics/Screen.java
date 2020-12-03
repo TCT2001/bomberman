@@ -6,6 +6,7 @@ import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.character.Bomber;
 
 import java.awt.*;
+import java.util.Arrays;
 
 /**
  * Xử lý render cho tất cả Entity và một số màn hình phụ ra Game Panel
@@ -16,7 +17,7 @@ public class Screen {
 
     protected int _width, _height;
     public int[] _pixels;
-    private int _transparentColor = 0xffff00ff;
+    private final int _transparentColor = 0xffff00ff;
 
     public static int xOffset = 0, yOffset = 0;
 
@@ -36,9 +37,7 @@ public class Screen {
 
 
     public void clear() {
-        for (int i = 0; i < _pixels.length; i++) {
-            _pixels[i] = 0;
-        }
+        Arrays.fill(_pixels, 0);
     }
 
     public void renderEntity(int xp, int yp, Entity entity) { //save entity pixels
