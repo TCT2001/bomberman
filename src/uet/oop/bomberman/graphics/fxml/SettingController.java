@@ -1,7 +1,5 @@
 package uet.oop.bomberman.graphics.fxml;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -102,8 +100,10 @@ public class SettingController implements Initializable {
         dialog.initModality(Modality.APPLICATION_MODAL);
         VBox dialogVbox = new VBox(20);
         dialogVbox.setAlignment(Pos.CENTER);
+
         //set max score
         Text text = new Text("Press any key\n\t");
+
         //CSS text
         DropShadow ds = new DropShadow();
         ds.setOffsetY(3.0f);

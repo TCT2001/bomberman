@@ -3,9 +3,12 @@ package uet.oop.bomberman.graphics.fxml;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -32,10 +35,20 @@ public class HomeController {
 
         //set max score
         Text text = new Text(score);
-        text.setFont(Font.font("Arial"));
+        //CSS
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(3.0f);
+        ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
+        text.setEffect(ds);
+        text.setCache(true);
+        text.setX(10.0f);
+        text.setY(270.0f);
+        text.setFill(Color.RED);
+        text.setFont(Font.font(null, FontWeight.BOLD, 40));
+
         dialogVbox.getChildren().add(text);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
-        dialog.setTitle("Hight Score");
+        dialog.setTitle("High Score");
         dialog.setScene(dialogScene);
         dialog.show();
     }
