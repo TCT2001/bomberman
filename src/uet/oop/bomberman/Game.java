@@ -135,7 +135,6 @@ public class Game extends Canvas {
         int frames = 0;
         int updates = 0;
         requestFocus();
-        Sound.playBackGround();
         while (_running) {
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;

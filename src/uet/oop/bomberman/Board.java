@@ -115,8 +115,8 @@ public class Board implements IRender {
 
     public boolean detectNoEnemies() {
         int total = 0;
-        for (Character character : _characters) {
-            if (!(character instanceof Bomber))
+        for (int i = 0; i < _characters.size(); i++) {
+            if (_characters.get(i) instanceof Bomber == false)
                 ++total;
         }
 
@@ -274,19 +274,23 @@ public class Board implements IRender {
     }
 
     protected void renderCharacter(Screen screen) {
+        Iterator<Character> itr = _characters.iterator();
 
-        for (Character character : _characters) character.render(screen);
+        while (itr.hasNext())
+            itr.next().render(screen);
     }
 
     protected void renderBombs(Screen screen) {
+        Iterator<Bomb> itr = _bombs.iterator();
 
-        for (Bomb bomb : _bombs) bomb.render(screen);
+        while (itr.hasNext())
+            itr.next().render(screen);
     }
 
     public void renderMessages(Graphics g) {
         Message m;
-        for (Message message : _messages) {
-            m = message;
+        for (int i = 0; i < _messages.size(); i++) {
+            m = _messages.get(i);
 
             g.setFont(new Font("Arial", Font.PLAIN, m.getSize()));
             g.setColor(m.getColor());
@@ -296,23 +300,26 @@ public class Board implements IRender {
 
     protected void updateEntities() {
         if (_game.isPaused()) return;
-        for (Entity entity : _entities) {
-            entity.update();
+        for (int i = 0; i < _entities.length; i++) {
+            _entities[i].update();
         }
     }
 
     protected void updateCharacters() {
         if (_game.isPaused()) return;
 
-        for (Character m : _characters) {
+        for (int i = 0; i < _characters.size(); i++) {
+            Character m = _characters.get(i);
             m.update();
         }
     }
 
     protected void updateBombs() {
         if (_game.isPaused()) return;
+        Iterator<Bomb> itr = _bombs.iterator();
 
-        for (Bomb bomb : _bombs) bomb.update();
+        while (itr.hasNext())
+            itr.next().update();
     }
 
     protected void updateMessages() {
@@ -388,7 +395,7 @@ public class Board implements IRender {
     }
 
     public void speedUpGame(){
-        Game.addBomberSpeed(0.2);
+        _game.addBomberSpeed(0.2);
     }
 
     public void quitGame(){
@@ -400,7 +407,7 @@ public class Board implements IRender {
     }
 
     public void addBombSize(){
-        Game.addBombRate(999);
+        _game.addBombRate(999);
     }
 
 }
