@@ -48,6 +48,8 @@ public class Kondoria extends Enemy {
         }
     }
 
+
+
     @Override
     protected void chooseSprite() {
         switch (_direction) {
