@@ -16,12 +16,13 @@ ctrl + q : để thoát trò chơi
 <img src="res/demo.png" alt="drawing" width="400"/>
 
 ## Mô tả về các đối tượng trong trò chơi
-Nếu bạn đã từng chơi Bomberman, bạn sẽ cảm thấy quen thuộc với những đối tượng này. Chúng được được chia làm hai loại chính là nhóm đối tượng động (*Bomber*, *Enemy*, *Bomb*) và nhóm đối tượng tĩnh (*Grass*, *Wall*, *Brick*, *Door*, *Item*).
-
-*Hãy thiết kế hệ thống các đối tượng một cách phù hợp để tận dụng tối đa sức mạnh của OOP: tái sử dụng code, dễ dàng maintain.*
 
 - ![](res/sprites/player_down.png) *Bomber* là nhân vật chính của trò chơi. Bomber có thể di chuyển theo 4 hướng trái/phải/lên/xuống theo sự điều khiển của người chơi. 
-- ![](res/sprites/balloom_left1.png) *Enemy* là các đối tượng mà Bomber phải tiêu diệt hết để có thể qua Level. Enemy có thể di chuyển ngẫu nhiên hoặc tự đuổi theo Bomber tùy theo loại Enemy. Các loại Enemy sẽ được mô tả cụ thể ở phần dưới.
+- ![](res/sprites/balloom_left1.png) *ballom* là Enemy đơn giản nhất di chuyển ngẫu nhiên có tốc độ vừa phải .
+- ![](res/sprites/minvo_left1.png) *minvo* là Enemy tương tự như ballom nhưng có tốc độ nhanh hơn .
+- ![](res/sprites/oneal_left1.png) *oneal* là Enemy có thể di chuyển để đuổi theo bạn .
+- ![](res/sprites/doll_left1.png) *doll* là Enemy tương tự như oneal nhưng có tốc độ nhanh hơn .
+- ![](res/sprites/kondoria_left1.png) *kondoria* là Enemy theo thời gian có khả năng tạo thêm Enemy khác .
 - ![](res/sprites/bomb.png) *Bomb* là đối tượng mà Bomber sẽ đặt và kích hoạt tại các ô Grass. Khi đã được kích hoạt, Bomber và Enemy không thể di chuyển vào vị trí Bomb. Tuy nhiên ngay khi Bomber vừa đặt và kích hoạt Bomb tại ví trí của mình, Bomber có một lần được đi từ vị trí đặt Bomb ra vị trí bên cạnh. Sau khi kích hoạt 2s, Bomb sẽ tự nổ, các đối tượng *Flame* ![](res/sprites/explosion_horizontal.png) được tạo ra.
 
 
