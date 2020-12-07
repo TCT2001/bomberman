@@ -1,11 +1,15 @@
 # Bài tập lớn OOP - Bomberman Game.
+
 # Mô tả cách chơi 
 sử dụng các phim W A S D để di chuyển và SPACE để đặt boom ( có thể thay đổi các phím trong phần setting)
 
-#  vài phím tắt trong game
+# Một vài phím tắt trong game
 ctrl + p : tạm dừng game
 ctrl + r : tiếp tục game 
 ctrl + q : để thoát trò chơi 
+
+
+
 
 
 
