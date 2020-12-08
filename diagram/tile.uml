@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="201.0">uet.oop.bomberman.entities.tile.Portal</node>
+    <node x="229.0" y="236.0">uet.oop.bomberman.entities.tile.item</node>
+    <node x="577.0" y="236.0">uet.oop.bomberman.entities.tile.destroyable</node>
+    <node x="779.0" y="212.5">uet.oop.bomberman.entities.tile.Wall</node>
+    <node x="376.0" y="0.0">uet.oop.bomberman.entities.tile.Tile</node>
+    <node x="376.0" y="212.5">uet.oop.bomberman.entities.tile.Grass</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uet.oop.bomberman.entities.tile.Grass" target="uet.oop.bomberman.entities.tile.Tile">
+      <point x="40.25" y="-38.5" />
+      <point x="496.75" y="181.0" />
+      <point x="464.55" y="181.0" />
+      <point x="8.050000000000011" y="60.5" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.Portal" target="uet.oop.bomberman.entities.tile.Tile">
+      <point x="-47.25" y="-50.0" />
+      <point x="47.25" y="141.0" />
+      <point x="384.05" y="141.0" />
+      <point x="-72.44999999999999" y="60.5" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.destroyable" target="uet.oop.bomberman.entities.tile.destroyable">
+      <point x="0.0" y="15.0" />
+      <point x="668.0" y="286.0" />
+      <point x="557.0" y="286.0" />
+      <point x="557.0" y="251.0" />
+      <point x="-91.0" y="-0.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.Wall" target="uet.oop.bomberman.entities.tile.Tile">
+      <point x="-40.25" y="-38.5" />
+      <point x="819.25" y="151.0" />
+      <point x="512.8499999999999" y="151.0" />
+      <point x="56.349999999999966" y="60.5" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.destroyable" target="uet.oop.bomberman.entities.tile.Tile">
+      <point x="45.5" y="-15.0" />
+      <point x="713.5" y="161.0" />
+      <point x="496.74999999999994" y="161.0" />
+      <point x="40.24999999999994" y="60.5" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item" target="uet.oop.bomberman.entities.tile.item">
+      <point x="0.0" y="15.0" />
+      <point x="292.5" y="286.0" />
+      <point x="209.0" y="286.0" />
+      <point x="209.0" y="251.0" />
+      <point x="-63.5" y="-0.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item" target="uet.oop.bomberman.entities.tile.Tile">
+      <point x="-31.75" y="-15.0" />
+      <point x="260.75" y="161.0" />
+      <point x="416.25" y="161.0" />
+      <point x="-40.25" y="60.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="311.5" y="49.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

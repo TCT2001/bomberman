@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1220.5" y="204.0">uet.oop.bomberman.entities.tile.item.SpeedItem</node>
+    <node x="1006.5" y="204.0">uet.oop.bomberman.entities.tile.item.BombItem</node>
+    <node x="791.5" y="204.0">uet.oop.bomberman.entities.tile.item.FlameItem</node>
+    <node x="237.0" y="331.0">uet.oop.bomberman.entities.tile.item.durationItem.WallPassItem</node>
+    <node x="120.5" y="204.0">uet.oop.bomberman.entities.tile.item.durationItem.DurationItem</node>
+    <node x="0.0" y="331.0">uet.oop.bomberman.entities.tile.item.durationItem.FlamePassItem</node>
+    <node x="693.5" y="0.0">uet.oop.bomberman.entities.tile.item.Item</node>
+    <node x="349.5" y="204.0">uet.oop.bomberman.entities.tile.item.LiveItem</node>
+    <node x="554.5" y="204.0">uet.oop.bomberman.entities.tile.item.BombPassItem</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uet.oop.bomberman.entities.tile.item.LiveItem" target="uet.oop.bomberman.entities.tile.item.Item">
+      <point x="0.0" y="-38.5" />
+      <point x="442.0" y="174.0" />
+      <point x="734.75" y="174.0" />
+      <point x="-41.25" y="72.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item.durationItem.DurationItem" target="uet.oop.bomberman.entities.tile.item.Item">
+      <point x="0.0" y="-38.5" />
+      <point x="225.0" y="164.0" />
+      <point x="707.25" y="164.0" />
+      <point x="-68.75" y="72.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item.BombItem" target="uet.oop.bomberman.entities.tile.item.Item">
+      <point x="0.0" y="-38.5" />
+      <point x="1103.5" y="174.0" />
+      <point x="817.25" y="174.0" />
+      <point x="41.25" y="72.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item.SpeedItem" target="uet.oop.bomberman.entities.tile.item.Item">
+      <point x="0.0" y="-38.5" />
+      <point x="1318.5" y="164.0" />
+      <point x="844.75" y="164.0" />
+      <point x="68.75" y="72.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item.durationItem.FlamePassItem" target="uet.oop.bomberman.entities.tile.item.durationItem.DurationItem">
+      <point x="0.0" y="-38.5" />
+      <point x="108.5" y="306.0" />
+      <point x="172.75" y="306.0" />
+      <point x="-52.25" y="38.5" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item.FlameItem" target="uet.oop.bomberman.entities.tile.item.Item">
+      <point x="0.0" y="-38.5" />
+      <point x="889.0" y="184.0" />
+      <point x="789.75" y="184.0" />
+      <point x="13.75" y="72.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item.BombPassItem" target="uet.oop.bomberman.entities.tile.item.Item">
+      <point x="0.0" y="-38.5" />
+      <point x="663.0" y="184.0" />
+      <point x="762.25" y="184.0" />
+      <point x="-13.75" y="72.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.tile.item.durationItem.WallPassItem" target="uet.oop.bomberman.entities.tile.item.durationItem.DurationItem">
+      <point x="0.0" y="-38.5" />
+      <point x="341.5" y="306.0" />
+      <point x="277.25" y="306.0" />
+      <point x="52.25" y="38.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="775.5" y="192.50000000000003" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

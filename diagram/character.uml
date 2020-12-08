@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="414.0">uet.oop.bomberman.entities.character.Bomber</node>
+    <node x="63.55" y="0.0">uet.oop.bomberman.entities.character.Character</node>
+    <node x="116.75" y="1004.0">uet.oop.bomberman.entities.character.enemy</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uet.oop.bomberman.entities.character.enemy" target="uet.oop.bomberman.entities.character.Bomber">
+      <point x="-50.625" y="-15.0" />
+      <point x="133.625" y="984.0" />
+      <point x="55.0" y="984.0" />
+      <point x="-55.0" y="270.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.character.enemy" target="uet.oop.bomberman.entities.character.enemy">
+      <point x="33.75" y="15.0" />
+      <point x="218.0" y="1064.0" />
+      <point x="86.75" y="1064.0" />
+      <point x="86.75" y="1011.5" />
+      <point x="-67.5" y="-7.5" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.character.enemy" target="uet.oop.bomberman.entities.character.Character">
+      <point x="16.875" y="-15.0" />
+      <point x="201.125" y="974.0" />
+      <point x="230.5" y="974.0" />
+      <point x="230.5" y="389.0" />
+      <point x="201.05" y="389.0" />
+      <point x="27.5" y="182.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.character.Bomber" target="uet.oop.bomberman.entities.character.enemy">
+      <point x="55.0" y="270.0" />
+      <point x="165.0" y="984.0" />
+      <point x="167.375" y="984.0" />
+      <point x="-16.875" y="-15.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.entities.character.Bomber" target="uet.oop.bomberman.entities.character.Character">
+      <point x="-55.0" y="-270.0" />
+      <point x="55.0" y="389.0" />
+      <point x="91.05" y="389.0" />
+      <point x="-82.5" y="182.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="311.5" y="49.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Properties</Category>
+    <Category>Constructors</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

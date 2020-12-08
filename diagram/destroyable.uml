@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="53.0" y="326.0">uet.oop.bomberman.entities.tile.destroyable.Brick</node>
+    <node x="0.0" y="0.0">uet.oop.bomberman.entities.tile.destroyable.DestroyableTile</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uet.oop.bomberman.entities.tile.destroyable.Brick" target="uet.oop.bomberman.entities.tile.destroyable.DestroyableTile">
+      <point x="-37.25" y="-49.5" />
+      <point x="90.25" y="301.0" />
+      <point x="63.75" y="301.0" />
+      <point x="-63.75" y="138.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="311.5" y="49.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

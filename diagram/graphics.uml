@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="389.0" y="0.0">uet.oop.bomberman.graphics.fxml</node>
+    <node x="16.5" y="216.0">uet.oop.bomberman.graphics.Sprite</node>
+    <node x="0.0" y="2611.0">uet.oop.bomberman.graphics.Screen</node>
+    <node x="79.5" y="0.0">uet.oop.bomberman.graphics.SpriteSheet</node>
+    <node x="88.0" y="3136.0">uet.oop.bomberman.graphics.IRender</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uet.oop.bomberman.graphics.fxml" target="uet.oop.bomberman.graphics.fxml">
+      <point x="0.0" y="15.0" />
+      <point x="452.5" y="50.0" />
+      <point x="369.0" y="50.0" />
+      <point x="369.0" y="15.0" />
+      <point x="-63.5" y="-0.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.graphics.IRender" target="uet.oop.bomberman.graphics.Screen">
+      <point x="0.0" y="-38.0" />
+      <point x="0.0" y="237.5" />
+    </edge>
+    <edge source="uet.oop.bomberman.graphics.Sprite" target="uet.oop.bomberman.graphics.SpriteSheet">
+      <point x="-72.75" y="-1172.5" />
+      <point x="89.25" y="191.0" />
+      <point x="120.75" y="191.0" />
+      <point x="-41.25" y="83.0" />
+    </edge>
+    <edge source="uet.oop.bomberman.graphics.Screen" target="uet.oop.bomberman.graphics.Sprite">
+      <point x="0.0" y="-237.5" />
+      <point x="0.0" y="1172.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="315.0" y="49.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

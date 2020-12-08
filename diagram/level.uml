@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="8.5" y="0.0">uet.oop.bomberman.level.LevelLoader</node>
+    <node x="0.0" y="239.0">uet.oop.bomberman.level.FileLevelLoader</node>
+    <node x="229.0" y="0.0">uet.oop.bomberman.level.Coordinates</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="uet.oop.bomberman.level.FileLevelLoader" target="uet.oop.bomberman.level.LevelLoader">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="94.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="315.0" y="91.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
