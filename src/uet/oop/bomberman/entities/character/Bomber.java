@@ -224,7 +224,7 @@ public class Bomber extends Character {
 
         // TODO: xử lý va chạm với Enemy
         if (e instanceof Enemy) {
-            kill();
+//            kill();
             Sound.playBomberDie();
             return true;
         }

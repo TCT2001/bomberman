@@ -106,16 +106,9 @@ public class SettingController implements Initializable {
         dialogVbox.getChildren().add(text);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         dialogScene.setOnKeyPressed(keyEvent -> {
-            text.setText(keyEvent.getCode().toString());
-            text.setStyle("");
-            Button buttonSave = new Button();
-            buttonSave.setText("Save");
-            dialogVbox.getChildren().add(buttonSave);
-            buttonSave.setOnAction(event -> {
-                dialog.hide();
-                s[i] = keyEvent.getCode().toString();
-                button.setText(s[i]);
-            });
+            dialog.hide();
+            s[i] = keyEvent.getCode().toString();
+            button.setText(s[i]);
         });
         dialog.setTitle("Setting");
         dialog.setScene(dialogScene);

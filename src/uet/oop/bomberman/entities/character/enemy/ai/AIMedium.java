@@ -33,7 +33,7 @@ public class AIMedium extends AI {
         if (Math.abs(_bomber.getX() - _e.getX()) > 3) {
             if (_e.canMove(deltaX + _e.getX(), _e.getY())) {
                 return deltaX < 0 ? 3 : 1;
-            }
+            }   
         }
         if (_e.canMove(_e.getX(), _e.getY() + deltaY)) {
             return deltaY < 0 ? 0 : 2;

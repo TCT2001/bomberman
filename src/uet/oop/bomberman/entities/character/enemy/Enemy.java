@@ -104,7 +104,8 @@ public abstract class Enemy extends Character {
                 x--;
         }
 
-        if (canMove(x + _x, y + _y)) {
+        if (canMove(x*_speed + _x, y*_speed + _y)) {
+
             move(x, y);
             _moving = true;
         } else {
@@ -125,6 +126,8 @@ public abstract class Enemy extends Character {
     @Override
     public boolean canMove(double x, double y) {
         //run test =>
+
+        //top   ., v, v,left
         Entity e = _board.getEntity((x) / 16, (y - 15) / 16, this);
         if (e != null && !e.collide(this)) {
             return false;
