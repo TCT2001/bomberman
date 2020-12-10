@@ -38,7 +38,6 @@ public class AIMedium extends AI {
         if (_e.canMove(_e.getX(), _e.getY() + deltaY)) {
             return deltaY < 0 ? 0 : 2;
         }
-
         //move dc thi di
         if (_e.canMove(-deltaX + _e.getX(), _e.getY())) {
             return deltaX > 0 ? 3 : 1;

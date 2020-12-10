@@ -10,7 +10,7 @@ import uet.oop.bomberman.entities.tile.Portal;
 import uet.oop.bomberman.entities.tile.Wall;
 import uet.oop.bomberman.entities.tile.destroyable.Brick;
 import uet.oop.bomberman.entities.tile.item.*;
-import uet.oop.bomberman.entities.tile.item.durationItem.FlamePassItem;
+import uet.oop.bomberman.entities.tile.item.FlamePassItem;
 import uet.oop.bomberman.entities.tile.item.durationItem.WallPassItem;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;

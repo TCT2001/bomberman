@@ -31,7 +31,7 @@ public class FxHelper {
             e.printStackTrace();
         }
         assert root != null;
-        Scene scene = new Scene(root, BombermanGame.width, BombermanGame.height);
+        Scene scene = new Scene(root, 640, 505);
         stage.setScene(scene);
     }
     public static void textCss(Text text, int size) {

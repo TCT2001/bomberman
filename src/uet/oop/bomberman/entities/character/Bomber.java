@@ -1,5 +1,6 @@
 package uet.oop.bomberman.entities.character;
 
+import uet.oop.bomberman.entities.tile.item.SpeedItem;
 import uet.oop.bomberman.game.Board;
 import uet.oop.bomberman.game.Game;
 import uet.oop.bomberman.entities.Entity;
@@ -68,10 +69,8 @@ public class Bomber extends Character {
     public void render(Screen screen) {
         calculateXOffset();
 
-        if (_alive)
-            chooseSprite();
-        else
-            _sprite = Sprite.player_dead1;
+        if (_alive) {
+            chooseSprite(); }
 
         screen.renderEntity((int) _x, (int) _y - _sprite.SIZE, this);
     }
@@ -87,8 +86,8 @@ public class Bomber extends Character {
     private void detectPlaceBomb() {
         // TODO: kiểm tra xem phím điều khiển đặt bom có được gõ và giá trị _timeBetweenPutBombs, Game.getBombRate() có thỏa mãn hay không
         if (Keyboard.boom && Game.getBombRate() > 0 && _timeBetweenPutBombs < 0) {
-            int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
-            int yt = Coordinates.pixelToTile((_y + _sprite.getSize() / 2) - _sprite.getSize()); //subtract half player height and minus 1 y position
+            int xt = Coordinates.pixelToTile(_x + (_sprite.getSize() >> 1));
+            int yt = Coordinates.pixelToTile((_y + (_sprite.getSize() >> 1)) - _sprite.getSize()); //subtract half player height and minus 1 y position
 
             placeBomb(xt, yt);
             //Giảm bombRate đi 1
@@ -181,11 +180,7 @@ public class Bomber extends Character {
 
 //        check bot right
         e = _board.getEntity((x + 8) / 16, (y - 0.1) / 16, this);
-        if (!e.collide(this))
-            return false;
-
-
-        return true;
+        return e.collide(this);
     }
 
     @Override
@@ -224,9 +219,9 @@ public class Bomber extends Character {
 
         // TODO: xử lý va chạm với Enemy
         if (e instanceof Enemy) {
-//            kill();
+            kill();
             Sound.playBomberDie();
-            return true;
+            return false;
         }
 
         return true;
@@ -291,9 +286,6 @@ public class Bomber extends Character {
             }
             if (duration.get(i) <= 0 && duration.get(i) != -1) {
                 if (temporaryPowerUps.size() >= i - 1) {
-                    /**
-                     * Xu ly trong Game.java cac chuc nang bi xoa
-                     */
                     if (temporaryPowerUps.get(i) instanceof WallPassItem) {
                         Game.setBomberPassWall(false);
                     }

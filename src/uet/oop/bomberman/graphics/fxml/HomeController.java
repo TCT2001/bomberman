@@ -52,6 +52,5 @@ public class HomeController {
 
     public void setting(MouseEvent mouseEvent) {
         FxHelper.setScene(mouseEvent, PATH_SETTING);
-
     }
 }

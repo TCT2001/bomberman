@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="pane" prefHeight="520.0" prefWidth="640.0" style="-fx-background-image: url('sprites/background.png')" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.oop.bomberman.graphics.fxml.HomeController">
+<AnchorPane fx:id="pane" prefHeight="505.0" prefWidth="640.0" style="-fx-background-image: url('sprites/background.png')" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.oop.bomberman.graphics.fxml.HomeController">
   <children>
     <Button fx:id="shiny1" layoutX="245.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#newGame" prefHeight="50.0" prefWidth="150.0" stylesheets="@stylesheet.css" text="New Game" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="109.0">
          <font>

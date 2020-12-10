@@ -63,8 +63,7 @@ public class Flame extends Entity {
 	}
 
 	/**
-	 * Tính toán độ dài của Flame, nếu gặp vật cản là Brick/Wall, độ dài sẽ bị cắt ngắn
-	 * @return
+	 * Tính toán độ dài của Flame, nếu gặp vật cản là Brick/Wall, độ dài sẽ bị cắt ngắn.
 	 */
 	private int calculatePermitedDistance() {
 		// TODO: thực hiện tính toán độ dài của Flame
@@ -88,7 +87,7 @@ public class Flame extends Entity {
 				break;
 			}
 
-			if(a.collide(this) == false) {
+			if(!a.collide(this)) {
 				//Không cho đi qua
 				break;
 			}
@@ -129,6 +128,7 @@ public class Flame extends Entity {
 			} else {
 				Sound.playBombExplosive();
 			}
+			return false;
 		}
 		return true;
 	}

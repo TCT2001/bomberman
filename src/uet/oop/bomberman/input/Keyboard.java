@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
  * Tiếp nhận và xử lý các sự kiện nhập từ bàn phím
  */
 public class Keyboard implements KeyListener {
-    private boolean[] keys = new boolean[120]; //120 is enough to this game
     public static boolean up, down, left, right, boom;
     public static String sUp, sDown, sLeft, sRight, sBoom;
     private Controls controls;
@@ -62,9 +61,6 @@ public class Keyboard implements KeyListener {
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             controls.quitGame();
             System.out.println("quit");
-        } else if (e.getKeyCode() == KeyEvent.VK_H
-                && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
-            //TODO: help
         } else if (e.getKeyCode() == KeyEvent.VK_U
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             controls.levelUpGame();

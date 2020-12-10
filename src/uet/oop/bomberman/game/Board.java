@@ -95,7 +95,7 @@ public class Board implements IRender {
         _characters.clear();
         _bombs.clear();
         _messages.clear();
-
+        _game.defaultValue();
 
         _levelLoader = new FileLevelLoader(this, level);
         _entities = new Entity[_levelLoader.getHeight() * _levelLoader.getWidth()];

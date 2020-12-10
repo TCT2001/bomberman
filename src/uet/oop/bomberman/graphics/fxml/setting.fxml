@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="520.0" prefWidth="640.0" style="-fx-background-image: url('sprites/background.png')" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.oop.bomberman.graphics.fxml.SettingController">
+<AnchorPane prefHeight="505.0" prefWidth="640.0" style="-fx-background-image: url('sprites/background.png')" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.oop.bomberman.graphics.fxml.SettingController">
     <children>
         <Button fx:id="btnSave" layoutX="264.0" layoutY="362.0" mnemonicParsing="false" onMouseClicked="#save" text="Save" />
         <Button fx:id="btnUp" layoutX="353.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#up" text="Button" />

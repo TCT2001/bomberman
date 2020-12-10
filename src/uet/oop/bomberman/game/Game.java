@@ -25,26 +25,26 @@ public class Game extends Canvas {
 
     public static final String TITLE = "BombermanGame";
 
-    private static final int BOMBRATE = 1;
-    private static final int BOMBRADIUS = 1;
-    private static final double BOMBERSPEED = 1.0;
-    public static final int LIVES = 1; // mang
+    private static final int BOMB_RATE = 1;
+    private static final int BOMB_RADIUS = 1;
+    private static final double BOMBER_SPEED = 1.0;
+    public static final int LIVES = 1;
 
     public static final int TIME = 200;
     public static final int POINTS = 0;
 
-    protected static int SCREENDELAY = 3;
+    protected static int SCREEN_DELAY = 3;
 
-    protected static int bombRate = BOMBRATE;
-    protected static int bombRadius = BOMBRADIUS;
-    protected static double bomberSpeed = BOMBERSPEED;
+    protected static int bombRate = BOMB_RATE;
+    protected static int bombRadius = BOMB_RADIUS;
+    protected static double bomberSpeed = BOMBER_SPEED;
     protected static boolean bomberPassWall = false;
     protected static boolean bomberPassBomb = false;
     protected static boolean bomberPassFlame = false;
     protected static int lives = LIVES;
 
 
-    protected int _screenDelay = SCREENDELAY;
+    protected int _screenDelay = SCREEN_DELAY;
 
     private Keyboard _input;
     private boolean _running = false;
@@ -113,10 +113,10 @@ public class Game extends Canvas {
         _board.update();
     }
 
-    private void defaultValue() {
-        bombRate = BOMBRATE;
-        bombRadius = BOMBRADIUS;
-        bomberSpeed = BOMBERSPEED;
+    public void defaultValue() {
+        bombRate = BOMB_RATE;
+        bombRadius = BOMB_RADIUS;
+        bomberSpeed = BOMBER_SPEED;
         bomberPassWall = false;
         bomberPassBomb = false;
         bomberPassFlame = false;
@@ -222,7 +222,7 @@ public class Game extends Canvas {
     }
 
     public void resetScreenDelay() {
-        _screenDelay = SCREENDELAY;
+        _screenDelay = SCREEN_DELAY;
     }
 
     public static Board getBoard() {
