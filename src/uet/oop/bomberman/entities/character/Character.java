@@ -1,7 +1,7 @@
 package uet.oop.bomberman.entities.character;
 
-import uet.oop.bomberman.Board;
-import uet.oop.bomberman.Game;
+import uet.oop.bomberman.game.Board;
+import uet.oop.bomberman.game.Game;
 import uet.oop.bomberman.entities.AnimatedEntitiy;
 import uet.oop.bomberman.graphics.Screen;
 

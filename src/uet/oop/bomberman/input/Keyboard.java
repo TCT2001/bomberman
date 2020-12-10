@@ -1,6 +1,6 @@
 package uet.oop.bomberman.input;
 
-import uet.oop.bomberman.Controls;
+import uet.oop.bomberman.controller.Controls;
 import uet.oop.bomberman.file.FileUltis;
 
 import java.awt.event.KeyEvent;

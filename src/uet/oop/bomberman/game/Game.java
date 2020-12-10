@@ -1,10 +1,10 @@
-package uet.oop.bomberman;
+package uet.oop.bomberman.game;
 
+import uet.oop.bomberman.controller.Controls;
 import uet.oop.bomberman.file.FileUltis;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.gui.Frame;
 import uet.oop.bomberman.input.Keyboard;
-import uet.oop.bomberman.sound.Sound;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;

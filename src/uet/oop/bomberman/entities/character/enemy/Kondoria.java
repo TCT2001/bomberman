@@ -1,8 +1,7 @@
 package uet.oop.bomberman.entities.character.enemy;
 //enemy create enemy
 
-import uet.oop.bomberman.Board;
-import uet.oop.bomberman.Game;
+import uet.oop.bomberman.game.Board;
 import uet.oop.bomberman.entities.character.enemy.ai.AILow;
 import uet.oop.bomberman.graphics.Sprite;
 

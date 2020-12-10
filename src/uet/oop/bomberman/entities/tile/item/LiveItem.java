@@ -1,7 +1,6 @@
 package uet.oop.bomberman.entities.tile.item;
 
-import uet.oop.bomberman.Board;
-import uet.oop.bomberman.Game;
+import uet.oop.bomberman.game.Board;
 import uet.oop.bomberman.graphics.Sprite;
 
 public class LiveItem extends Item {

@@ -1,4 +1,6 @@
-package uet.oop.bomberman;
+package uet.oop.bomberman.controller;
+
+import uet.oop.bomberman.game.Board;
 
 public class Controls {
     private Board board;

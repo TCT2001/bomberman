@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import uet.oop.bomberman.BombermanGame;
+import uet.oop.bomberman.main.BombermanGame;
 
 import java.io.File;
 import java.io.IOException;

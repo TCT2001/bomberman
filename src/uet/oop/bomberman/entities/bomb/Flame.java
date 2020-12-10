@@ -1,6 +1,6 @@
 package uet.oop.bomberman.entities.bomb;
 
-import uet.oop.bomberman.Game;
+import uet.oop.bomberman.game.Game;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.Character;

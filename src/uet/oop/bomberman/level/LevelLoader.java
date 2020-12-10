@@ -1,6 +1,6 @@
 package uet.oop.bomberman.level;
 
-import uet.oop.bomberman.Board;
+import uet.oop.bomberman.game.Board;
 
 /**
  * Load và lưu trữ thông tin bản đồ các màn chơi

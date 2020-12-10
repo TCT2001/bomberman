@@ -1,7 +1,6 @@
 package uet.oop.bomberman.entities.tile.item.durationItem;
 
-import uet.oop.bomberman.Game;
-import uet.oop.bomberman.entities.tile.item.Item;
+import uet.oop.bomberman.game.Game;
 import uet.oop.bomberman.graphics.Sprite;
 
 public class FlamePassItem extends DurationItem {

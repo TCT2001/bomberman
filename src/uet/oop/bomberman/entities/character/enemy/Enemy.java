@@ -1,7 +1,7 @@
 package uet.oop.bomberman.entities.character.enemy;
 
-import uet.oop.bomberman.Board;
-import uet.oop.bomberman.Game;
+import uet.oop.bomberman.game.Board;
+import uet.oop.bomberman.game.Game;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.Message;
 import uet.oop.bomberman.entities.bomb.Flame;
@@ -108,7 +108,7 @@ public abstract class Enemy extends Character {
             move(x, y);
             _moving = true;
         } else {
-            _steps -= 3;
+            _steps -= 1;
             _moving = false;
         }
 
@@ -129,7 +129,7 @@ public abstract class Enemy extends Character {
         if (e != null && !e.collide(this)) {
             return false;
         }
-////        check top right
+//        check top right
         e = _board.getEntity((x + 15) / 16, (y - 15) / 16, this);
         if (e != null && !e.collide(this)) {
             return false;

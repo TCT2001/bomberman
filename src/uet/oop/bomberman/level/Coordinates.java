@@ -1,6 +1,6 @@
 package uet.oop.bomberman.level;
 
-import uet.oop.bomberman.Game;
+import uet.oop.bomberman.game.Game;
 
 public class Coordinates {
 	
