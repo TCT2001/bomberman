@@ -96,14 +96,14 @@ public class Screen {
         return temp;
     }
 
-    public void drawEndGame(Graphics g, int points) {
+    public void drawEndGame(Graphics g, int points ,String content) {
         g.setColor(Color.black);
         g.fillRect(0, 0, getRealWidth(), getRealHeight());
 
         Font font = new Font("Arial", Font.PLAIN, 20 * Game.SCALE);
         g.setFont(font);
         g.setColor(Color.white);
-        drawCenteredString("GAME OVER", getRealWidth(),
+        drawCenteredString(content, getRealWidth(),
                 getRealHeight()-(Game.TILES_SIZE *3) * Game.SCALE, g);
 
         font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);

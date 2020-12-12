@@ -83,6 +83,10 @@ public class Board implements IRender {
     }
 
     public void nextLevel() {
+        if (_levelLoader.getLevel() == 5) { //win ? {
+            winGame();
+            return;
+        }
         Sound.playNextLevel();
         loadLevel(_levelLoader.getLevel() + 1);
     }
@@ -103,13 +107,20 @@ public class Board implements IRender {
     }
 
     protected void detectEndGame() {
-        if (_time <= 0 || _live == 0)
+        if (_time <= 0) {
             endGame();
+        }
     }
 
     public void endGame() {
         Sound.playLose();
         _screenToShow = 1;
+        _game.stop();
+    }
+
+    public void winGame() {
+        Sound.playWin();
+        _screenToShow = 4;
         _game.stop();
     }
 
@@ -126,19 +137,22 @@ public class Board implements IRender {
     public void drawScreen(Graphics g) {
         switch (_screenToShow) {
             case 1:
-                _screen.drawEndGame(g, _points);
+                _screen.drawEndGame(g, _points, "GAME OVER");
                 break;
+
             case 2:
                 _screen.drawChangeLevel(g, _levelLoader.getLevel());
                 break;
             case 3:
                 _screen.drawPaused(g);
                 break;
+            case 4:
+                _screen.drawEndGame(g, _points, "YOU WIN !");
+                break;
         }
     }
 
     public Entity getEntity(double x, double y, Character m) {
-        //System.out.println("get entity");
         Entity res = null;
 
         res = getFlameSegmentAt((int) x, (int) y);
@@ -154,7 +168,6 @@ public class Board implements IRender {
         res = getCharacterAtExcluding((int) x, (int) y, m);
         if (res != null) {
             //TODO
-            //System.out.println("character");
             return res;
         }
 
@@ -394,19 +407,19 @@ public class Board implements IRender {
         _game.run();
     }
 
-    public void speedUpGame(){
+    public void speedUpGame() {
         _game.addBomberSpeed(0.2);
     }
 
-    public void quitGame(){
+    public void quitGame() {
         System.exit(0);
     }
 
-    public void immortalGame(){
+    public void immortalGame() {
         getBomber().immortal();
     }
 
-    public void addBombSize(){
+    public void addBombSize() {
         _game.addBombRate(999);
     }
 

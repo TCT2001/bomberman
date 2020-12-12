@@ -1,6 +1,7 @@
 package uet.oop.bomberman.controller;
 
 import uet.oop.bomberman.game.Board;
+import uet.oop.bomberman.game.Game;
 
 public class Controls {
     private Board board;
@@ -42,6 +43,9 @@ public class Controls {
 
     public void addBoomSize() {
         board.addBombSize();
+    }
+    public void addFlameSize() {
+        Game.addBombRadius(1);
     }
 
 }

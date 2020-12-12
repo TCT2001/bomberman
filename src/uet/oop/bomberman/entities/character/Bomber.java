@@ -40,12 +40,14 @@ public class Bomber extends Character {
         super(x, y, board);
         _bombs = _board.getBombs();
         _sprite = Sprite.player_right;
+        _timeAfter = 80;
     }
 
     @Override
     public void update() {
         clearBombs();
         if (!_alive) {
+            chooseSprite();
             afterKill();
             return;
         }
@@ -123,7 +125,7 @@ public class Bomber extends Character {
     @Override
     public void kill() {
         if (immortal) return;
-        if (Board._live > 0) {
+        if (_board.get_live() > 1) {
             // Khi vẫn còn mạng, thì giảm mạng
             Board.addLive(-1);
             return;
@@ -136,8 +138,10 @@ public class Bomber extends Character {
 
     @Override
     protected void afterKill() {
+        System.out.println("?");
         if (_timeAfter > 0) --_timeAfter;
         else {
+            System.out.println("??");
             _board.endGame();
         }
     }
@@ -228,6 +232,11 @@ public class Bomber extends Character {
     }
 
     private void chooseSprite() {
+        if (!_alive) {
+            _sprite = Sprite.movingSprite(Sprite.player_dead1,Sprite.player_dead2,Sprite.player_dead3,_animate,5);
+
+            return;
+        }
         switch (_direction) {
             case 0:
                 _sprite = Sprite.player_up;

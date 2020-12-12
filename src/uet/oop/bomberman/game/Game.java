@@ -240,8 +240,8 @@ public class Game extends Canvas {
     public void stop() {
         _running = false;
         renderScreen();
-        _board.setShow(1);
-        int point_player = _board.getPoints();
+        _board.setShow(4);
+        int point_player =  _board.getPoints();
         int point_max = Integer.parseInt(FileUltis.getHighScore());
         if (point_player > point_max) {
             FileUltis.setHighScore(point_player);

@@ -76,10 +76,15 @@ public class Keyboard implements KeyListener {
 
             controls.upSpeedGame();
             System.out.println("hack speed");
-        } else if (e.getKeyCode() == KeyEvent.VK_T
+        } else if (e.getKeyCode() == KeyEvent.VK_B
                 && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
             //time ?
             controls.addBoomSize();
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_F
+                && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
+            //time ?
+            controls.addFlameSize();
         }
     }
 
