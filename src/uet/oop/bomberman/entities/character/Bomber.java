@@ -138,10 +138,8 @@ public class Bomber extends Character {
 
     @Override
     protected void afterKill() {
-        System.out.println("?");
         if (_timeAfter > 0) --_timeAfter;
         else {
-            System.out.println("??");
             _board.endGame();
         }
     }
